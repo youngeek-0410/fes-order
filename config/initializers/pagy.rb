@@ -1,10 +1,4 @@
 # ==============================================================================
-# app - models - shops
+# config - initializers - pagy
 # ==============================================================================
-class Shop < ApplicationRecord
-  has_many :products
-  has_one :receipt
-
-  has_secure_password
-  has_one_attached :image
-end
+require 'pagy/extras/semantic'
