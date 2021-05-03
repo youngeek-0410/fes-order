@@ -12,6 +12,7 @@ html
     title event_payment_app
 
   body
+    
     .ui.container
       .ui.top.attached.demo.menu
         a.item
@@ -20,7 +21,9 @@ html
         a.item
           i.home.icon
           | Home
+        = link_to 'ログアウト', destroy_session_path, method: :delete
       .ui.bottom.attached.segment.pushable
+      
         .ui.inverted.labeled.icon.left.inline.vertical.sidebar.menu style=""
           a.item
             i.home.icon
@@ -33,9 +36,15 @@ html
             | Friends
           a.item
             i.calendar.icon
-            | History
+            | Logout
         .pusher
           .ui.basic.segment
+            .ui.warning.message
+              i.close.icon
+              .header
+                - flash.each do |message_type, message|
+                  = message
+            == yield
             h3.ui.header Application Content
             p お
             p た
