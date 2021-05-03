@@ -17,7 +17,7 @@ html
       .ui.top.attached.demo.menu
         a.item
           i.sidebar.icon
-        a.item
+        = link_to session_path, class: 'item' do
           i.home.icon
         - if authenticated?
             = link_to destroy_session_path, class: 'item', method: :delete do
