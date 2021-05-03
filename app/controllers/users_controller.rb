@@ -3,6 +3,7 @@
 # ==============================================================================
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:update]
 
   def show
   end
@@ -17,6 +18,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    customer = Payjp::Customer.create
+    @user.customer_id = customer.id
     if @user.save
       redirect_to root_path
     else
@@ -26,6 +29,10 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
+      @customer.cards.create(
+        card: params[:payjp_token],
+        default: true,
+      ) if params[:payjp_token]
       redirect_to @user
     else
       render 'edit'
@@ -44,6 +51,10 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user
+  end
+
+  def set_customer
+    @customer = @user.customer
   end
 end

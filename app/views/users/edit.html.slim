@@ -1,6 +1,13 @@
-= form_with model: @user, local: true do |f|
+= form_with model: @user, id: 'user_form', local: true do |f|
   = f.text_field :family_name, placeholder: '氏'
   = f.text_field :given_name, placeholder: '名'
   = f.text_field :display_name, placeholder: 'ニックネーム'
   = f.email_field :email, placeholder: 'メールアドレス'
-  = f.submit '登録'
+  #number-form
+  #expiry-form
+  #cvc-form
+  p.form-error
+  = f.submit '更新'
+
+script src="https://js.pay.jp/v2" type="text/javascript"
+= javascript_include_tag 'payjp'

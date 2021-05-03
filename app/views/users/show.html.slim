@@ -1,3 +1,4 @@
 = @user.display_name
+= @user.card&.last4
 = link_to '編集', edit_user_path(@user)
 = link_to '削除', user_path(@user), method: :delete

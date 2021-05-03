@@ -1,0 +1,31 @@
+// =============================================================================
+// app - assets - javascripts - payjp
+// =============================================================================
+//= require jquery
+//= require jquery_ujs
+
+var $form = $('#user_form')
+var payjp = Payjp('<%= ENV['PAYJP_PRIVATE_KEY'] %>')
+
+var elements = payjp.elements()
+
+var numberElement = elements.create('cardNumber')
+var expiryElement = elements.create('cardExpiry')
+var cvcElement = elements.create('cardCvc')
+
+numberElement.mount('#number-form')
+expiryElement.mount('#expiry-form')
+cvcElement.mount('#cvc-form')
+
+$form.on("click", "input[type=submit]", function(e){
+  $form.find("input[type=submit]").prop("disabled", true)
+  payjp.createToken(numberElement).then(function(r) {
+    if (r.error){
+      $('.form-error').text(r.error.message);
+      $form.find("input[type=submit]").prop("disabled", false);
+    }else{
+      $form.append($('<input type="hidden" name="payjp_token" class="payjp-token" />').val(r.id));
+      $form.get(0).submit();
+    }
+  })
+})

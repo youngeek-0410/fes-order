@@ -8,8 +8,10 @@
 #
 SystemAdmin.create!(name: 'システムテスト太郎', email: 'system_test@example.com', password: 'password', password_confirmation: 'password')
 
-user = User.create!(family_name: 'システム', given_name: 'テスト太郎1', display_name: '太郎1',email: 'test1@example.com', password: 'password', password_confirmation: 'password')
-User.create!(family_name: 'システム', given_name: 'テスト太郎2', display_name: '太郎2',email: 'test2@example.com', password: 'password', password_confirmation: 'password')
+customer1 = Payjp::Customer.create
+customer2 = Payjp::Customer.create
+user = User.create!(family_name: 'システム', given_name: 'テスト太郎1', display_name: '太郎1',email: 'test1@example.com', password: 'password', password_confirmation: 'password', customer_id: customer1.id)
+User.create!(family_name: 'システム', given_name: 'テスト太郎2', display_name: '太郎2',email: 'test2@example.com', password: 'password', password_confirmation: 'password', customer_id: customer2.id)
 
 shop = Shop.create!(name: 'リンゴ飴屋', description: 'りんご飴を売ってます。',email: 'ringo@example.com', password: 'password', password_confirmation: 'password')
 shop.image.attach(io: File.open(Rails.root.join('app/assets/images/ringoame.jpg')), filename: 'ringoame.jpg')

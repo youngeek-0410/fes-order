@@ -13,4 +13,13 @@ class User < ApplicationRecord
   validates :display_name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
+
+  def customer
+    Payjp::Customer.retrieve(self.customer_id)
+  end
+
+  def card
+    customer = self.customer
+    customer.default_card.nil? ? nil : customer.cards.retrieve(customer.default_card)
+  end
 end
