@@ -3,6 +3,7 @@
 # ==============================================================================
 class ApplicationController < ActionController::Base
     include SessionsHelper
+    include PayjpHelper
     include Pagy::Backend
 
     protect_from_forgery with: :exception

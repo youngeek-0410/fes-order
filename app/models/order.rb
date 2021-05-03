@@ -4,5 +4,5 @@
 class Order < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :product
-  belongs_to :receipt, optional: true
+  has_one :receipt
 end

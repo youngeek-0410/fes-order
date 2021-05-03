@@ -1,4 +1,4 @@
-= form_with url: receipts_path, local: true do |f|
+= form_with url: user_receipts_path(current_user), local: true do |f|
   = label_tag :count, '個数'
   = number_field_tag :count, placeholder: 1
   = label_tag :coupon_id, 'クーポン'
@@ -6,5 +6,6 @@
   = hidden_field_tag :shop_id, @product.shop_id
   = hidden_field_tag :user_id, current_user.id
   = hidden_field_tag :product_id, @product.id
-
-  = f.submit '購入'
+  - if current_user.card.nil?
+    = link_to 'カード情報を登録してください', edit_user_path(current_user)
+  = f.submit '購入', disabled: current_user.card.nil?
