@@ -8,44 +8,38 @@ html
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no')
     = javascript_pack_tag 'application'
-    script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"
-    link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
     title event_payment_app
 
   body
-    
     .ui.container
-      .ui.top.attached.demo.menu
-        a.item
-          i.sidebar.icon
+      /! Left Sidebar
+      #left-sidebar.ui.visible.left.vertical.sidebar.menu
         = link_to root_path, class: 'item' do
           i.home.icon
+          | Home
         - if authenticated?
-            = link_to destroy_session_path, class: 'item', method: :delete do
-              i.sign.out.alternate.icon
-      .ui.bottom.attached.segment.pushable
-      
-        .ui.inverted.labeled.icon.left.inline.vertical.sidebar.menu style=""
-          a.item
-            i.home.icon
-            | Home
-          a.item
-            i.block.layout.icon
-            | Topics
-          a.item
-            i.smile.icon
-            | Friends
-          a.item
-            i.calendar.icon
+          = link_to destroy_session_path, class: 'item', method: :delete do
+            i.power.off.icon
             | Logout
 
-        .pusher
-          .ui.basic.segment
-            - if flash.present?
-              .ui.warning.message
-                i.close.icon
-                .header
-                  - flash.each do |message_type, message|
-                    = message
-            == yield
+      #main-content.pusher
+        /! Top Fixed Menu
+        #top-header.ui.top.fixed.menu
+          a#vk-header-icon-a.item
+            i.big.bars.icon.vk-header-icon
+
+        /! Page Content Here
+        #main-body-content.row
+          .thirteen.wide.column
+            .ui.top.attached.header style="height:60px;" 
+              h2#vk-col-header-text Service
+            .ui.bottom.attached.segment
+              - if flash.present?
+                .ui.warning.message
+                  i.close.icon
+                  .header
+                    - flash.each do |message_type, message|
+                      = message
+              == yield
