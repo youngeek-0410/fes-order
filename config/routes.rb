@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, except: :index do
     resources :coupons, only: [:index, :create], controller: :coupons
+    resources :game_tickets, only: [:index, :show], controller: :game_tickets
   end
 
   resources :shops, only: [:index, :show] do
@@ -19,6 +20,4 @@ Rails.application.routes.draw do
   resources :receipts, only: [:index, :show, :create] do
     post 'to_used', on: :member
   end
-
-  resources :game_tickets, only: [:index, :show]
 end

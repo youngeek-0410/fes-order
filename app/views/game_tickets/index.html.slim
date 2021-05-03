@@ -1,0 +1,3 @@
+p = "#{@game_tickets.count}回プレイできます"
+- unless @game_tickets.empty?
+  = link_to 'クイズを始める', user_game_ticket_path(current_user, @game_tickets.first)
