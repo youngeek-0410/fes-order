@@ -7,7 +7,7 @@ class GameTicketsController < ApplicationController
   end
 
   def show
-    @game_ticket = GameTicket.find(params[:id])
+    @game_ticket = GameTicket.where(user_id: current_user.id).find(params[:id])
   end
 
   def create
