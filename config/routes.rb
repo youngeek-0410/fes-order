@@ -11,15 +11,15 @@ Rails.application.routes.draw do
   resources :users, except: :index do
     resources :coupons, only: [:index, :create], controller: :coupons
     resources :game_tickets, only: [:index, :show], controller: :game_tickets
+    resources :receipts, only: [:index, :show, :create], controller: :receipts do
+      post 'to_used', on: :member
+    end
   end
 
   resources :shops, only: [:index, :show] do
     resources :products, only: :show, controller: :products
   end
 
-  resources :receipts, only: [:index, :show, :create] do
-    post 'to_used', on: :member
-  end
 
   resources :quizzes, only: :index
 end
