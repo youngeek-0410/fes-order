@@ -2,4 +2,5 @@
 # app - models - quizs
 # ==============================================================================
 class Quiz < ApplicationRecord
+  scope :ramdom, ->(n) { self.all.sample(n) }
 end
