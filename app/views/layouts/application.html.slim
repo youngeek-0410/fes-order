@@ -10,8 +10,43 @@ html
     = javascript_pack_tag 'application'
     = csrf_meta_tags
     title event_payment_app
+
   body
-  - flash.each do |message_type, message|
-    div
-      = message
-  == yield
+    
+    .ui.container
+      .ui.top.attached.demo.menu
+        a.item
+          i.sidebar.icon
+          | Menu
+        a.item
+          i.home.icon
+          | Home
+        = link_to 'ログアウト', destroy_session_path, method: :delete
+      .ui.bottom.attached.segment.pushable
+      
+        .ui.inverted.labeled.icon.left.inline.vertical.sidebar.menu style=""
+          a.item
+            i.home.icon
+            | Home
+          a.item
+            i.block.layout.icon
+            | Topics
+          a.item
+            i.smile.icon
+            | Friends
+          a.item
+            i.calendar.icon
+            | Logout
+        .pusher
+          .ui.basic.segment
+            .ui.warning.message
+              i.close.icon
+              .header
+                - flash.each do |message_type, message|
+                  = message
+            == yield
+            h3.ui.header Application Content
+            p お
+            p た
+            p め
+            p し
