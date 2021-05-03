@@ -11,6 +11,14 @@ require("channels")
 require("fomantic-ui/dist/semantic.min.css")
 require("fomantic-ui/dist/semantic.min.js")
 
+// using context
+$('.context.example .ui.sidebar')
+  .sidebar({
+    context: $('.context.example .bottom.segment')
+  })
+  .sidebar('attach events', '.context.example .menu .item')
+;
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.

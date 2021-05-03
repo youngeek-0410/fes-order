@@ -4,7 +4,6 @@
 
 div
   div
-    = authenticated?
     = form_with url: session_path, method: :post, local: true do |f|
       div
         = label_tag :email, 'メールアドレス'

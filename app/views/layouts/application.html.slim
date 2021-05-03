@@ -17,11 +17,11 @@ html
       .ui.top.attached.demo.menu
         a.item
           i.sidebar.icon
-          | Menu
         a.item
           i.home.icon
-          | Home
-        = link_to 'ログアウト', destroy_session_path, method: :delete
+        - if authenticated?
+            = link_to destroy_session_path, class: 'item', method: :delete do
+              i.sign.out.alternate.icon
       .ui.bottom.attached.segment.pushable
       
         .ui.inverted.labeled.icon.left.inline.vertical.sidebar.menu style=""
@@ -38,17 +38,12 @@ html
             i.calendar.icon
             | Logout
 
-        - if flash.present?
         .pusher
           .ui.basic.segment
-            .ui.warning.message
-              i.close.icon
-              .header
-                - flash.each do |message_type, message|
-                  = message
+            - if flash.present?
+              .ui.warning.message
+                i.close.icon
+                .header
+                  - flash.each do |message_type, message|
+                    = message
             == yield
-            h3.ui.header Application Content
-            p お
-            p た
-            p め
-            p し

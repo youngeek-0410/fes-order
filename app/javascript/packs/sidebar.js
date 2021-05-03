@@ -1,7 +1,14 @@
+console.log('te1')
+
+require("fomantic-ui/dist/semantic.min.css")
+require("fomantic-ui/dist/semantic.min.js")
+
 semantic.sidebar = {};
 
 // ready event
 semantic.sidebar.ready = function() {
+
+  console.log('te2')
 
   // selector cache
   var
