@@ -10,20 +10,34 @@ html
     = javascript_pack_tag 'application'
     = csrf_meta_tags
     title event_payment_app
+
   body
-    div class="ui inverted large borderless fixed fluid menu column"
-      a class="header item" href="/" Qiita
-      div class="right menu"
-        div class="ui dropdown item"
-          div class="header"
-            h4 MENU
-          i class="share square icon"
-          div class="menu"
-            div class="item"
-              small
-                i class="th icon"
-                  記事を書く
-            div class="item"
-              small
-                i class="clipboard outline icon"
-                  USER NAME
+    .ui.container
+      .ui.top.attached.demo.menu
+        a.item
+          i.sidebar.icon
+          | Menu
+        a.item
+          i.home.icon
+          | Home
+      .ui.bottom.attached.segment.pushable
+        .ui.inverted.labeled.icon.left.inline.vertical.sidebar.menu style=""
+          a.item
+            i.home.icon
+            | Home
+          a.item
+            i.block.layout.icon
+            | Topics
+          a.item
+            i.smile.icon
+            | Friends
+          a.item
+            i.calendar.icon
+            | History
+        .pusher
+          .ui.basic.segment
+            h3.ui.header Application Content
+            p お
+            p た
+            p め
+            p し
