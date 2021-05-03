@@ -1,0 +1,8 @@
+= form_with model: @user, local: true do |f|
+  = f.text_field :family_name, placeholder: '氏'
+  = f.text_field :given_name, placeholder: '名'
+  = f.text_field :display_name, placeholder: 'ニックネーム'
+  = f.email_field :email, placeholder: 'メールアドレス'
+  = f.password_field :password, placeholder: 'パスワード'
+  = f.password_field :password_confirmation, placeholder: 'パスワード(再入力)'
+  = f.submit '登録'
