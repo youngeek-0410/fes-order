@@ -1,18 +1,14 @@
 / ==============================================================================
-/ app - views - layout - sessions - new
+/ app - views - sessions - new
 / ==============================================================================
-h1 Sign in
 
 div
   div
-    = form_with scope: :session, url:session_path, local: true do |f|
-    
+    = form_with url: session_path, method: :post, local: true do |f|
       div
-        = f.label :email
-        = f.email_field (:email)
-      
+        = label_tag :email, 'メールアドレス'
+        = email_field_tag :email, @email, placeholder: 'email'
       div
-        = f.label (:password)
-        = f.password_field (:password)
-
-      = f.submit "Sign in"
+        = label_tag :password, 'パスワード'
+        = password_field_tag :password
+      = submit_tag "ログイン"
