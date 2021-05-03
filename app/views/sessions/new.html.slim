@@ -1,0 +1,18 @@
+/ ==============================================================================
+/ app - views - layout - sessions - new
+/ ==============================================================================
+h1 Sign in
+
+div
+  div
+    = form_with scope: :session, url:session_path, local: true do |f|
+    
+      div
+        = f.label :email
+        = f.email_field (:email)
+      
+      div
+        = f.label (:password)
+        = f.password_field (:password)
+
+      = f.submit "Sign in"
