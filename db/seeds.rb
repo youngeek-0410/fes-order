@@ -15,7 +15,7 @@ shop = Shop.create!(name: 'リンゴ飴屋', description: 'りんご飴を売っ
 
 N = 20
 N.times do |i|
-  Product.create!(shop: shop, name: "#{i}.リンゴ飴", description: '美味しいです', price: 91, price_tax: 100)
+  Product.create!(shop: shop, name: "#{i}.リンゴ飴", description: '美味しいです', price: 91, price_tax: 100, required_minutes: i % 6)
 end
 
 Coupon.create!(name: '割引クーポンA', discount: 10, user: user, expired_at: Time.current.end_of_day)
