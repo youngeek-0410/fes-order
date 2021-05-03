@@ -6,4 +6,5 @@ class Shop < ApplicationRecord
   has_one :receipt
 
   has_secure_password
+  has_one_attached :image
 end

@@ -12,6 +12,7 @@ user = User.create!(family_name: 'システム', given_name: 'テスト太郎1',
 User.create!(family_name: 'システム', given_name: 'テスト太郎2', display_name: '太郎2',email: 'test2@example.com', password: 'password', password_confirmation: 'password')
 
 shop = Shop.create!(name: 'リンゴ飴屋', description: 'りんご飴を売ってます。',email: 'ringo@example.com', password: 'password', password_confirmation: 'password')
+shop.image.attach(io: File.open(Rails.root.join('app/assets/images/ringoame.jpg')), filename: 'ringoame.jpg')
 
 N = 20
 N.times do |i|
