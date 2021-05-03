@@ -60,9 +60,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
     t.integer "count", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "receipt_id"
     t.index ["product_id"], name: "index_orders_on_product_id"
-    t.index ["receipt_id"], name: "index_orders_on_receipt_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -92,6 +90,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
     t.bigint "shop_id", null: false
     t.bigint "product_id", null: false
     t.bigint "coupon_id"
+    t.bigint "order_id", null: false
     t.integer "price", null: false
     t.integer "price_tax", null: false
     t.boolean "is_used", default: false, null: false
@@ -99,6 +98,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "charge_id", null: false
     t.index ["coupon_id"], name: "index_receipts_on_coupon_id"
+    t.index ["order_id"], name: "index_receipts_on_order_id"
     t.index ["product_id"], name: "index_receipts_on_product_id"
     t.index ["shop_id"], name: "index_receipts_on_shop_id"
     t.index ["user_id"], name: "index_receipts_on_user_id"
@@ -136,9 +136,9 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
   add_foreign_key "coupons", "users"
   add_foreign_key "game_tickets", "users"
   add_foreign_key "orders", "products"
-  add_foreign_key "orders", "receipts"
   add_foreign_key "products", "shops"
   add_foreign_key "receipts", "coupons"
+  add_foreign_key "receipts", "orders"
   add_foreign_key "receipts", "products"
   add_foreign_key "receipts", "shops"
   add_foreign_key "receipts", "users"
