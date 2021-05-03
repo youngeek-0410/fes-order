@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :receipts, only: [:index, :show, :create] do
     post 'to_used', on: :member
   end
+
+  resources :quizzes, only: :index
 end
