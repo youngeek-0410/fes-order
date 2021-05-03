@@ -12,23 +12,23 @@ class ReceiptsController < ApplicationController
 
   def create
     order = Order.create!(product_id: params[:product_id], count: params[:count])
-    price_tax = order.product.price * order.count
+    price = order.product.price * order.count
     price_tax = order.product.price_tax * order.count
 
     charge = payjp_charge(price_tax, current_user.customer_id)
 
-    params = {
-      user: current_user,
-      order: order.id,
-      shop_id: params[:shop_id],
-      product_id: params[:product_id],
-      coupon_id: params[:coupon_id],
+    receipts_params = {
+      user_id: current_user.id,
+      order: order,
+      shop_id: params[:shop_id].to_i,
+      product_id: params[:product_id].to_i,
+      coupon_id: params[:coupon_id].to_i,
       price: price,
       price_tax: price_tax,
       charge_id: charge.id,
     }
 
-    receipt = Receipt.create!(params)
+    receipt = Receipt.create!(receipts_params)
     redirect_to user_receipt_path(current_user, receipt)
   end
 
