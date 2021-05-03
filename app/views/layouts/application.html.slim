@@ -11,7 +11,19 @@ html
     = csrf_meta_tags
     title event_payment_app
   body
-  - flash.each do |message_type, message|
-    div
-      = message
-  == yield
+    div class="ui inverted large borderless fixed fluid menu column"
+      a class="header item" href="/" Qiita
+      div class="right menu"
+        div class="ui dropdown item"
+          div class="header"
+            h4 MENU
+          i class="share square icon"
+          div class="menu"
+            div class="item"
+              small
+                i class="th icon"
+                  記事を書く
+            div class="item"
+              small
+                i class="clipboard outline icon"
+                  USER NAME
