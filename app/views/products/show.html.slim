@@ -1,11 +1,10 @@
-- @products.each do |product|
-  = form_with url: receipts_path  id: 'product_form', local: true do |f|
-    = f.label :count, '個数'
-    = f.number_field :count, placeholder: 1
-    = f.label :coupon, 'クーポン'
-    = f.collection_select :coupon, @coupons, :id, :name
-    = f.hidden_field :shop_id product.shop_id
-    = f.hidden_field :shop_id @user.id
-    = f.hidden_field :shop_id product.id
+= form_with url: receipts_path, local: true do |f|
+  = label_tag :count, '個数'
+  = number_field_tag :count, placeholder: 1
+  = label_tag :coupon_id, 'クーポン'
+  = f.collection_select :coupon_id, @coupons, :id, :name
+  = hidden_field_tag :shop_id, @product.shop_id
+  = hidden_field_tag :user_id, current_user.id
+  = hidden_field_tag :product_id, @product.id
 
-    = f.submit '購入'
+  = f.submit '購入'
