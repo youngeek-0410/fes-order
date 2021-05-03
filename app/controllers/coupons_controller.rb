@@ -7,13 +7,15 @@ class CouponsController < ApplicationController
   end
 
   def create
-    coupon = Coupon.new(coupon_params)
+    coupon = Coupon.new(name: coupon_params[:name], discount: coupon_params[:discount].to_i, user_id: coupon_params[:user_id], expired_at: Time.current.end_of_day)
     coupon.save!
+    GameTicket.all.first.destroy!
+    redirect_to user_coupons_path(current_user)
   end
 
   private
 
   def coupon_params
-    params.require(:coupon).permit(:name, :discount, :user)
+    params.require(:coupon).permit(:name, :discount, :user_id)
   end
 end
