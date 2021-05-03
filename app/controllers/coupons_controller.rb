@@ -1,9 +1,9 @@
 # ==============================================================================
-# app - controller - sessions
+# app - controller - coupons
 # ==============================================================================
 class CouponsController < ApplicationController
   def index
-    @coupons = Coupon.where(user_id: current_user.id,is_used: false)
+    @pagy, @coupons = pagy Coupon.where(user_id: current_user.id, is_used: false)
   end
 
   def create
