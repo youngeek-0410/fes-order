@@ -11,13 +11,7 @@ class GameTicketsController < ApplicationController
   end
 
   def create
-    game_ticket = Coupon.new(game_ticket_params)
+    game_ticket = Coupon.new(user: current_user, expired_at: Time.current.end_of_day)
     game_ticket.save!
-  end
-
-  private
-
-  def game_ticket_params
-    params.require(:game_ticket).permit(:user)
   end
 end
