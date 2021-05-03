@@ -8,11 +8,10 @@ module SessionsHelper
   end
 
   def authenticated?
-    current_user.present?
+    current_user.present? && session[:user_id].present?
   end
 
   def sign_out
     session[:user_id] = nil
   end
-
 end

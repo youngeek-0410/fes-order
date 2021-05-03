@@ -2,7 +2,9 @@
 # app - controller - sessions
 # ==============================================================================
 class SessionsController < ApplicationController
+  skip_before_action :authenticate!, only: [:new, :create]
   def new
+    return redirect_to root_path if authenticated?
   end
 
   def create
@@ -19,7 +21,6 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to root_path
+    redirect_to new_session_path 
   end
-
 end
