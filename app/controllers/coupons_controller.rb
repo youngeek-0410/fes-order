@@ -7,8 +7,13 @@ class CouponsController < ApplicationController
   end
 
   def create
+    coupon = Coupon.new(coupon_params)
+    coupon.save!
   end
 
-  def to_used
+  private
+
+  def coupon_params
+    params.require(:coupon).permit(:name, :discount, :user)
   end
 end
