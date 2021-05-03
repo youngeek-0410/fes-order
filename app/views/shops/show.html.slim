@@ -2,4 +2,4 @@
 = @shop.description
 
 - @shop.products.each do |product|
-  = product.name
+  = link_to product.name, shop_product_path(product)
