@@ -37,6 +37,8 @@ html
           a.item
             i.calendar.icon
             | Logout
+
+        - if flash.present?
         .pusher
           .ui.basic.segment
             .ui.warning.message
