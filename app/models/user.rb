@@ -17,4 +17,9 @@ class User < ApplicationRecord
   def customer
     Payjp::Customer.retrieve(self.customer_id)
   end
+
+  def card
+    customer = self.customer
+    customer.default_card.nil? ? nil : customer.cards.retrieve(customer.default_card)
+  end
 end
