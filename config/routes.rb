@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete 'sign_out', to: 'sessions#destroy', as: :destroy_session
 
   resources :users, except: :index do
-    resources :coupons, only: [:index, :show, :create], controller: :coupons do
+    resources :coupons, only: [:index, :create], controller: :coupons do
       post 'to_used', on: :member
     end
   end

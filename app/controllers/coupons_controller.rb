@@ -3,11 +3,7 @@
 # ==============================================================================
 class CouponsController < ApplicationController
   def index
-    @coupon = Coupon.where(user_id: params[:user_id], is_used: false)
-  end
-
-  def show
-    @coupon = Coupon.where(id: params[:id])
+    @coupons = Coupon.where(user_id: current_user.id,is_used: false)
   end
 
   def create
