@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   post 'sign_in', to: 'sessions#create', as: :session
   delete 'sign_out', to: 'sessions#destroy', as: :destroy_session
 
-  resources :users, except: :index
+  resources :users, except: :index do
+    resources :coupons, only: [:index, :create], controller: :coupons
+  end
 
   resources :shops, only: [:index, :show] do
     resources :products, only: :show, controller: :products
@@ -19,8 +21,4 @@ Rails.application.routes.draw do
   end
 
   resources :game_tickets, only: [:index, :show]
-
-  resources :coupons, only: [:index, :show, :create] do
-    post 'to_used', on: :member
-  end
 end
