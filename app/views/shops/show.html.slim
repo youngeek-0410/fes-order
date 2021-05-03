@@ -1,5 +1,17 @@
-= @shop.name
-= @shop.description
+.ui.centered.card
+  .image
+    = image_tag @shop.image
+  .content
+    span.header = @shop.name
+  .description
+    = @shop.description
 
 - @shop.products.each do |product|
-  = link_to product.name, shop_product_path(@shop, product)
+  = link_to shop_product_path(@shop, product) do
+    .ui.centered.horizontal.card
+      .image
+        img src="https://recipe.r10s.jp/recipe-space/d/strg/ctrl/3/3234463525b19e024895fa1a4fc05fa896169e76.12.2.3.2.jpg?interpolation=lanczos-none&fit=around%7C716:716&crop=716:716;*,*"
+      .content
+        .header = product.name
+        .description
+          = product.description

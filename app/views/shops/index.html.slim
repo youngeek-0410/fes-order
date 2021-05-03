@@ -1,7 +1,11 @@
-ul
-  - @shops.each do |shop|
-    = link_to shop_path(shop), method: :get do
-      li = shop.name
-      = image_tag shop.image
+- @shops.each do |shop|
+  = link_to shop_path(shop), method: :get do
+    .ui.centered.card
+      .image
+        = image_tag shop.image
+      .content
+        span.header = shop.name
+      .description
+        = slice20(shop.description)
 .ui.center.aligned.grid.pagination
   == pagy_semantic_nav(@pagy)
