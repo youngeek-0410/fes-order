@@ -4,8 +4,8 @@
 class User < ApplicationRecord
   has_many :receipt
   has_many :order
-  has_many :game_ticket
-  has_many :coupon
+  has_many :game_ticket, dependent: :destroy
+  has_many :coupon, dependent: :destroy
   has_secure_password
   validates :family_name, presence: true
   validates :given_name, presence: true
