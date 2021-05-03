@@ -11,4 +11,7 @@ html
     = csrf_meta_tags
     title event_payment_app
   body
-      == yield
+  - flash.each do |message_type, message|
+    div
+      = message
+  == yield

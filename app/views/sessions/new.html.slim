@@ -1,0 +1,15 @@
+/ ==============================================================================
+/ app - views - sessions - new
+/ ==============================================================================
+
+div
+  div
+    = authenticated?
+    = form_with url: session_path, method: :post, local: true do |f|
+      div
+        = label_tag :email, 'メールアドレス'
+        = email_field_tag :email, @email, placeholder: 'email'
+      div
+        = label_tag :password, 'パスワード'
+        = password_field_tag :password
+      = submit_tag "ログイン"
