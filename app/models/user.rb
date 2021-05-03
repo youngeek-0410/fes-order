@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :game_ticket, dependent: :destroy
   has_many :coupon, dependent: :destroy
   has_secure_password
+
   validates :family_name, presence: true
   validates :given_name, presence: true
   validates :display_name, presence: true
