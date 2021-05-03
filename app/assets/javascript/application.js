@@ -11,9 +11,4 @@ $(document).on('turbolinks:load', function() {
     .sidebar('attach events', '#vk-header-icon-a')
     .sidebar('setting', 'transition', 'push');
 
-  // Initialize the table
-  $('#example').DataTable({
-    "stripeClasses": ['odd-row', 'even-row']
-  });
-
 });
