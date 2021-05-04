@@ -1,4 +1,29 @@
-= @user.display_name
-= @user.card&.last4
-= link_to '編集', edit_user_path
-= link_to '削除', user_path, method: :delete
+.ui.container
+  .ui.grid.us-card style="padding-top: 13px"
+    .three.wide.column
+      i.user.circle.icon.huge.grey
+    h2.ten.wide.column.us-lh-2-5.us-ml-10 = "#{@user.display_name} さん"
+
+.ui.divider
+.ui.container
+  .us-card
+    table.ui.very.basic.table
+      tbody
+        tr
+          th 苗字
+          td = @user.family_name
+        tr
+          th 名前
+          td = @user.given_name
+        tr
+          th ニックネーム
+          td = @user.display_name
+        tr
+          th メールアドレス
+          td = @user.email
+        tr
+          th クレジットカード
+          td = @user.card.nil? ? '未登録' : "**** **** **** #{@user.card.last4}"
+    = link_to '編集', edit_user_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
+    = link_to '退会', user_path, method: :delete, class: 'ui button red', style: 'font-weight: 100'
+
