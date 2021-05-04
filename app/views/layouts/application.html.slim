@@ -14,22 +14,22 @@ html
     title event_payment_app
 
   body
-    .ui.labeled.icon.menu.us-w-100.us-header style="margin: 0"
-      a.item.us-w-20.us-fz-12 style="min-width: 0"
-        i.icon.home.blue
-        span.ui.small.text.blue ホーム
-      a.item.us-w-20.us-fz-12 style="min-width: 0"
-        i.gamepad.icon.grey
-        span.ui.small.text.grey クイズ
-      a.item.us-w-20.us-fz-12 style="min-width: 0"
-        i.shopping.bag.icon.grey
-        span.ui.small.text.grey 注文履歴
-      a.item.us-w-20.us-fz-12 style="min-width: 0"
-        i.ticket.alternate.icon.grey
-        span.ui.small.text.grey クーポン
-      a.item.us-w-20.us-fz-12.grey style="min-width: 0"
-        i.user.icon.grey
-        span.ui.small.text.grey マイページ
+    #header_nav.ui.labeled.icon.menu.us-w-100.us-header style="margin: 0"
+      = link_to root_path, class: "item us-w-20 us-fz-12 us-active", style: "min-width: 0" do
+        i.icon.home
+        span.ui.small.text ホーム
+      = link_to user_game_tickets_path(current_user), class: "item us-w-20 us-fz-12 us-inactive", style: "min-width: 0" do
+        i.gamepad.icon
+        span.ui.small.text クイズ
+      = link_to user_receipts_path(current_user), class: "item us-w-20 us-fz-12 us-inactive", style: "min-width: 0" do
+        i.shopping.bag.icon
+        span.ui.small.text 注文履歴
+      = link_to user_coupons_path(current_user), class: "item us-w-20 us-fz-12 us-inactive", style: "min-width: 0" do
+        i.ticket.alternate.icon
+        span.ui.small.text クーポン
+      = link_to user_path(current_user), class: "item us-w-20 us-fz-12 us-inactive", style: "min-width: 0" do
+        i.user.icon
+        span.ui.small.text マイページ
 
     .ui.container
       .row

@@ -38,3 +38,15 @@ a {
 .us-fz-12 {
   font-size: 12px;
 }
+
+.us-active {
+  i, span {
+    color: #2185d0;
+  }
+}
+
+.us-inactive {
+  i, span {
+    color: #767676;
+  }
+}
