@@ -9,3 +9,30 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(再入力)
+      shop:
+        email: メールアドレス
+        password: パスワード
+        name: 店名
+      product:
+        name: 商品名
+        description: 商品説明
+        price: 値段
+        price_tax: 税金
+      order:
+        count: 個数
+      coupon:
+        name: 券名
+        discount: 割引
+        expired_at: 有効期限
+      quiz:
+        description: 問題文
+        answer: 解答
+        content1: 選択肢１
+        content2: 選択肢２
+        content3: 選択肢３
+      game_ticket:
+        expired_at: 有効期限
+      system_admin:
+        name: 管理者名
+        email: メールアドレス
+        password: パスワード
