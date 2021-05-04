@@ -17,12 +17,14 @@ class ReceiptsController < ApplicationController
 
     charge = payjp_charge(price_tax, current_user.customer_id)
 
+    coupon = params[:coupon_id].blank? ? nil : params[:coupon_id].to_i
+
     receipts_params = {
       user_id: current_user.id,
       order: order,
       shop_id: params[:shop_id].to_i,
       product_id: params[:product_id].to_i,
-      coupon_id: params[:coupon_id].to_i,
+      coupon_id: coupon,
       price: price,
       price_tax: price_tax,
       charge_id: charge.id,
