@@ -31,13 +31,13 @@ html
         i.user.icon
         span.ui.small.text マイページ
 
-    .ui.container
-      .row
-        .thirteen.wide.column
-          - if flash.present?
-            .ui.warning.message
-              i.close.icon
-              .header
-                - flash.each do |message_type, message|
-                  = message
-          == yield
+    .us-background
+      .ui.container
+        - if flash.present?
+          .ui.warning.message
+            i.close.icon
+            .header
+              - flash.each do |message_type, message|
+                = message
+      == yield
+      .us-h-100-px
