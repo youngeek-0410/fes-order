@@ -18,8 +18,8 @@ class ReceiptsController < ApplicationController
       @coupons = Coupon.where(user: current_user, is_used: false)
       return render 'products/show', group: @order
     end
-    price = order.product.price * order.count
-    price_tax = order.product.price_tax * order.count
+    price = @order.product.price * @order.count
+    price_tax = @order.product.price_tax * @order.count
 
     charge = payjp_charge(price_tax, current_user.customer_id)
 
@@ -27,7 +27,7 @@ class ReceiptsController < ApplicationController
 
     receipts_params = {
       user_id: current_user.id,
-      order: order,
+      order: @order,
       shop_id: params[:shop_id].to_i,
       product_id: params[:product_id].to_i,
       coupon: coupon,

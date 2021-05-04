@@ -13,8 +13,9 @@ class SessionsController < ApplicationController
       sign_in @user
       redirect_to root_path
     else
+      @error = true
       @email = params[:email]
-      flash.now[:danger] = 'パスワードまたはメールアドレスが間違っています。'
+      @pass = params[:password].blank?
       render 'new'
     end
   end
