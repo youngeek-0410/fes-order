@@ -14,11 +14,19 @@
  *= require_self
  */
 
-a {
-  color: inherit;
-  div:active {
+ a {
+  color: #000000;
+  div:hover {
     color: #000000;
   }
+}
+
+a:hover {
+  color: #000000;
+}
+
+a:active {
+  color: #000000;
 }
 
 p, h2 {
