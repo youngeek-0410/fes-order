@@ -1,11 +1,20 @@
-= form_with url: user_receipts_path, local: true do |f|
-  = label_tag :count, '個数'
-  = number_field_tag :count, '1', in: 1..10
-  = label_tag :coupon_id, 'クーポン'
-  = f.collection_select :coupon_id, @coupons, :id, :name, include_blank: '使用しない'
-  = hidden_field_tag :shop_id, @product.shop_id
-  = hidden_field_tag :user_id, current_user.id
-  = hidden_field_tag :product_id, @product.id
-  - if current_user.card.nil?
-    = link_to 'カード情報を登録してください', edit_user_path
-  = f.submit '購入', disabled: current_user.card.nil?
+.image
+  = image_tag @product.image, class: 'us-img-shop'
+.ui.container
+  h2 = @product.name
+  p.us-fz-14 = @product.description
+
+  h3 購入
+  = form_with url: user_receipts_path, class: 'ui form', local: true do |f|
+    .field
+      = label_tag :count, '個数'
+      = number_field_tag :count, '1', in: 1..10
+    .field
+      = label_tag :coupon_id, 'クーポン'
+      = f.collection_select :coupon_id, @coupons, :id, :name, include_blank: '使用しない'
+    = hidden_field_tag :shop_id, @product.shop_id
+    = hidden_field_tag :user_id, current_user.id
+    = hidden_field_tag :product_id, @product.id
+    - if current_user.card.nil?
+      = link_to 'カード情報を登録してください', edit_user_path
+    = f.submit '購入', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;', disabled: current_user.card.nil?
