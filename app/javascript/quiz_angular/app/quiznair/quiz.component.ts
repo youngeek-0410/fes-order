@@ -5,12 +5,20 @@ import { QuestionnairComponent } from './quiznair.component';
 @Component({
   selector: 'app-question',
   template: `
-    <div>Question No.{{nextQuestion?.id}}</div>
-    <div>Question: {{nextQuestion?.description}}</div>
+    <div class="ui icon message" style="margin-bottom: 40px">
+      <i class="inbox icon"></i>
+      <div class="content">{{nextQuestion?.description}}</div>
+    </div>
     <div>
-      <button (click)="check(1)">{{nextQuestion?.content1}}</button>
-      <button (click)="check(2)">{{nextQuestion?.content2}}</button>
-      <button (click)="check(3)">{{nextQuestion?.content3}}</button>
+      <div class="us-mt-15">
+        <button class="ui button blue us-w-100 us-h-45-px" (click)="check(1)">{{nextQuestion?.content1}}</button>
+      </div>
+      <div class="us-mt-15">
+        <button class="ui button green us-w-100 us-h-45-px" (click)="check(2)">{{nextQuestion?.content2}}</button>
+      </div>
+      <div class="us-mt-15">
+        <button class="ui button pink us-w-100 us-h-45-px" (click)="check(3)">{{nextQuestion?.content3}}</button>
+      </div>
     </div>
   `
 })
