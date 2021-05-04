@@ -21,8 +21,8 @@ export class HttpClientService {
     return this.http.get<Quiz[]>(this.quizUrl + `?count=3`, this.httpOptions);
   }
 
-  public post(parm: any): Promise<any> {
-    return this.http.post(this.quizUrl, parm, this.httpOptions).toPromise();
+  public post(parm: any): Observable<any> {
+    return this.http.post<any>(this.quizUrl + '/create', parm, this.httpOptions);
   }
 
   private errorHandler(err) {

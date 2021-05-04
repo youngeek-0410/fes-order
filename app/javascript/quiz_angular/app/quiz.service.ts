@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Quiz } from './quiz';
 import { HttpClientService } from './http-client.service';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class QuizService {
@@ -14,32 +16,29 @@ export class QuizService {
     shop_id: 1
   };
 
-  constructor(private httpService: HttpClientService) {
-    this.getQuizes();
-   }
+  constructor(private httpService: HttpClientService) { }
 
-  getQuizes(): void { 
-    this.httpService.get().subscribe(
-      quizzes => {
-        this.allQuizes = quizzes;
-        console.log(this.allQuizes);
-      });
+  getQuizes(): Observable<Quiz[]> {
+    return this.httpService.get().pipe(
+      tap(
+        quizzes => {
+          console.log(quizzes);
+          this.allQuizes = quizzes;
+        }
+      )
+    )
   }
 
   isLastQuiz() {
-    console.log("isLastQuiz");
     return this.quizIndex == this.allQuizes.length;
   }
 
   getNextQuiz() {
-    console.log("getNextQuiz");
     return this.allQuizes[this.quizIndex++];
   }
 
   endQuiz(score: number) {
-    console.log("endQuiz");
-    this.parms.discount = score;
+    this.parms.discount = score*10;
     this.httpService.post(this.parms);
   }
-
 }

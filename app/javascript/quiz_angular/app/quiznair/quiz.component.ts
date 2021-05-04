@@ -6,17 +6,16 @@ import { QuestionnairComponent } from './quiznair.component';
   selector: 'app-question',
   template: `
     <p>
-      さて、問題です。
+      現在の得点は「{{score}}点」です！
     </p>
 
     <div>Question No.{{nextQuestion?.id}}</div>
-    <div>Question: {{nextQuestion?.discription}}</div>
+    <div>Question: {{nextQuestion?.description}}</div>
     <div>
       <button (click)="check(1)">{{nextQuestion?.content1}}</button>
       <button (click)="check(2)">{{nextQuestion?.content2}}</button>
       <button (click)="check(3)">{{nextQuestion?.content3}}</button>
     </div>
-    <div>{{score}}</div>
   `
 })
 export class QuestionComponent implements OnInit {

@@ -1,6 +1,6 @@
 export interface Quiz {
   id: number,
-  discription: string,
+  description: string,
   content1: string,
   content2: string,
   content3: string,
