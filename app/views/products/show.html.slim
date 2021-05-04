@@ -1,6 +1,6 @@
 = form_with url: user_receipts_path, local: true do |f|
   = label_tag :count, '個数'
-  = number_field_tag :count, placeholder: 1
+  = number_field_tag :count, '1', in: 1..10
   = label_tag :coupon_id, 'クーポン'
   = f.collection_select :coupon_id, @coupons, :id, :name
   = hidden_field_tag :shop_id, @product.shop_id
