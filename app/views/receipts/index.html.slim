@@ -5,12 +5,14 @@
   - @receipts.each do |receipt|
     = link_to user_receipt_path(receipt) do
       .grid.ui.us-white-background style="margin-bottom: 5px; margin-top: 5px"
-        .three.wide.column
-          = image_tag receipt.product.image, class: 'us-img-product'
+        .four.wide.column
+          = image_tag receipt.product.image, class: 'us-img-receipt'
         .ten.wide.column
           .us-fz-18 = receipt.product.name
           .us-fz-14.us-mt-5 = "￥#{receipt.product.price_tax}  #{receipt.shop.name}"
           .ui.divider
+          - if receipt.is_availabled && @current == 'not_used'
+            .ui.blue.message 受け渡し可能
   - if @receipts.empty?
     .us-not-avalilable 購入商品はありません。
   - else
