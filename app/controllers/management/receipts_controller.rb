@@ -5,7 +5,7 @@ class Management::ReceiptsController < Management::ApplicationController
   before_action :set_receipt, only: [:show, :to_availabled]
 
   def index
-    @receipts = Receipt.where(shop_id: current_shop.id, is_used: false).order(:id)
+    @receipts = Receipt.where(shop: current_shop, is_availabled: false)
   end
 
   def show

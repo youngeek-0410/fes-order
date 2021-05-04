@@ -10,4 +10,4 @@
         .four.wide.column
           = link_to "#{Product.find(receipt.product_id).name}", management_shop_receipt_path(receipt.id)
         .ten.wide.column
-          = "#{Order.find(receipt.order_id).count}"
+          = receipt.shop_id
