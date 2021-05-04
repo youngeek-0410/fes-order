@@ -3,10 +3,11 @@
     .three.wide.column
       i.user.circle.icon.huge.grey
     h2.ten.wide.column.us-lh-2-5.us-ml-10 新規登録
-
-- if @user.errors.any?
-  - @user.errors.full_messages.each do |message|
-    div class="ui red message" #{message}
+- unless @user.nil?
+  - if @user.errors.any?
+    ul.ui.red.message
+      - @user.errors.full_messages.each do |message|
+        li = message
 
 .ui.container.us-mt-30
   = form_with model: @user, url: user_path, class: 'ui form', id: 'user_form', local: true do |f|
