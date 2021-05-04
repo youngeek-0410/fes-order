@@ -43,7 +43,8 @@ export class QuestionnairComponent implements OnInit {
       this.isOnLastQuestion = true;
       this.lastScore = score;
       this.quizNum = this.quizService.quizIndex;
-      this.params.discount = Math.ceil(50*(this.lastScore/this.quizNum)/100)*100;
+      this.params.discount = Math.ceil(50*(this.lastScore/this.quizNum)/10)*10;
+      console.log(this.params.discount);
     }
   }
 }

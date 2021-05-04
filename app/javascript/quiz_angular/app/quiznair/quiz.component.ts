@@ -5,10 +5,6 @@ import { QuestionnairComponent } from './quiznair.component';
 @Component({
   selector: 'app-question',
   template: `
-    <p>
-      現在の得点は「{{score}}点」です！
-    </p>
-
     <div>Question No.{{nextQuestion?.id}}</div>
     <div>Question: {{nextQuestion?.description}}</div>
     <div>
