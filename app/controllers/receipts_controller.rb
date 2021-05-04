@@ -32,7 +32,7 @@ class ReceiptsController < ApplicationController
 
     receipt = Receipt.create!(receipts_params)
     GameTicket.create!(user: current_user, expired_at: Time.current.end_of_day, shop_id: receipt.shop_id)
-    redirect_to user_receipt_path(current_user, receipt)
+    redirect_to user_receipts_path
   end
 
   def to_used
