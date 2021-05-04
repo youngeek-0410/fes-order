@@ -2,6 +2,6 @@
 / app - views - management - shops - show
 / ==============================================================================
 
-= @shop.name
-= link_to '編集', edit_management_shop_path
-= link_to '削除', management_shop_path, method: :delete
+.ui.container
+  h1.us-pt-10 = current_shop.name
+  .ui.divider
