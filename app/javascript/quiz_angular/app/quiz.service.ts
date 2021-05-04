@@ -30,4 +30,8 @@ export class QuizService {
   getNextQuiz() {
     return this.allQuizes[this.quizIndex++];
   }
+
+  getShopId() {
+    return this.httpService.getShopId();
+  }
 }

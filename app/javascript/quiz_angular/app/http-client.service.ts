@@ -11,14 +11,22 @@ export class HttpClientService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  private quizUrl: string = 'http://localhost:3000/quizzes';
+  private quizUrl: string = '/quizzes';
+  private shop_id;
 
   constructor(private http: HttpClient) {
     this.setAuthorization('my-auth-token');
   }
 
   public get(): Observable<Quiz[]> {
-    return this.http.get<Quiz[]>(this.quizUrl + `?count=3`, this.httpOptions);
+    const game_ticket = document.getElementById('quiz_root');
+    const count = parseInt(game_ticket.dataset.count, 10);
+    this.shop_id = game_ticket.dataset.shop_id;
+    return this.http.get<Quiz[]>(this.quizUrl + `?count=${count+1}`, this.httpOptions);
+  }
+
+  public getShopId() {
+    return this.shop_id;
   }
 
   public post(parm: any): Observable<any> {
