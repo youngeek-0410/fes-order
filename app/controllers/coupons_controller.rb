@@ -7,7 +7,9 @@ class CouponsController < ApplicationController
   end
 
   def create
-    coupon = Coupon.new(name: params[:coupon][:name], discount: params[:coupon][:discount].to_i, user: current_user, expired_at: Time.current.end_of_day, shop_id: Shop.ramdom1(params[:coupons][:shop_id]))
+    shop = Shop.ramdom1(params[:coupons][:shop_id])
+    name = "#{shop.name} #{params[:coupon][:discount]}円引きクーポン"
+    coupon = Coupon.new(name: name, discount: params[:coupon][:discount].to_i, user: current_user, expired_at: Time.current.end_of_day, shop: shop)
     coupon.save!
     GameTicket.all.first.destroy!
     redirect_to user_coupons_path
