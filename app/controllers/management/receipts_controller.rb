@@ -14,6 +14,6 @@ class Management::ReceiptsController < Management::ApplicationController
     receipt = Receipt.where(shop: current_shop).find(params[:id])
     receipt.to_availabled
     flash.now[:info] = "#{receipt.product.name}が受け取り可能になりました。"
-    redirect_to shop_receipts_path
+    redirect_to management_shop_receipts_path
   end
 end
