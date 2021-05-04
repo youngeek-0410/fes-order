@@ -1,6 +1,7 @@
-// Loads all Fomantic javascripts
-//= require fomantic-ui
-$(document).on('turbolinks:load', function() {
+//= require jquery
+//= require jquery_ujs
+
+$(function() {
   const shop_regex = /\/shops[a-z, 0-9, /]*/
   const game_ticket_regex = /\/user\/game_tickets[a-z, 0-9, /]*/
   const receipt_regex = /\/user\/receipts[a-z, 0-9, /]*/
@@ -27,4 +28,4 @@ $(document).on('turbolinks:load', function() {
     $("#user_nav").removeClass("us-inactive")
     $("#user_nav").addClass("us-active")
   }
-});
+})
