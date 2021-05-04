@@ -14,14 +14,30 @@ html
     title event_payment_app
 
   body
+    .ui.labeled.icon.menu.us-w-100.us-header style="margin: 0"
+      a.item.us-w-20.us-fz-12 style="min-width: 0"
+        i.icon.home.blue
+        span.ui.small.text.blue ホーム
+      a.item.us-w-20.us-fz-12 style="min-width: 0"
+        i.gamepad.icon.grey
+        span.ui.small.text.grey クイズ
+      a.item.us-w-20.us-fz-12 style="min-width: 0"
+        i.shopping.bag.icon.grey
+        span.ui.small.text.grey 注文履歴
+      a.item.us-w-20.us-fz-12 style="min-width: 0"
+        i.ticket.alternate.icon.grey
+        span.ui.small.text.grey クーポン
+      a.item.us-w-20.us-fz-12.grey style="min-width: 0"
+        i.user.icon.grey
+        span.ui.small.text.grey マイページ
+
     .ui.container
       .row
         .thirteen.wide.column
-          .ui.bottom.attached.segment
-            - if flash.present?
-              .ui.warning.message
-                i.close.icon
-                .header
-                  - flash.each do |message_type, message|
-                    = message
-            == yield
+          - if flash.present?
+            .ui.warning.message
+              i.close.icon
+              .header
+                - flash.each do |message_type, message|
+                  = message
+          == yield
