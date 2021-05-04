@@ -17,19 +17,20 @@ class ReceiptsController < ApplicationController
 
     charge = payjp_charge(price_tax, current_user.customer_id)
 
-    coupon = params[:coupon_id].blank? ? nil : params[:coupon_id].to_i
+    coupon = params[:coupon_id].blank? ? nil : Coupon.find(params[:coupon_id].to_i)
 
     receipts_params = {
       user_id: current_user.id,
       order: order,
       shop_id: params[:shop_id].to_i,
       product_id: params[:product_id].to_i,
-      coupon_id: coupon,
+      coupon: coupon,
       price: price,
       price_tax: price_tax,
       charge_id: charge.id,
     }
 
+    coupon&.to_used
     receipt = Receipt.create!(receipts_params)
     GameTicket.create!(user: current_user, expired_at: Time.current.end_of_day, shop_id: receipt.shop_id, product_id: receipt.product_id)
     redirect_to user_receipts_path
