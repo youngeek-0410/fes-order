@@ -1,8 +1,28 @@
-= form_with model: @user, local: true do |f|
-  = f.text_field :family_name, placeholder: '氏'
-  = f.text_field :given_name, placeholder: '名'
-  = f.text_field :display_name, placeholder: 'ニックネーム'
-  = f.email_field :email, placeholder: 'メールアドレス'
-  = f.password_field :password, placeholder: 'パスワード'
-  = f.password_field :password_confirmation, placeholder: 'パスワード(再入力)'
-  = f.submit '登録'
+.ui.container
+  .ui.grid.us-card style="padding-top: 13px"
+    .three.wide.column
+      i.user.circle.icon.huge.grey
+    h2.ten.wide.column.us-lh-2-5.us-ml-10 新規登録
+
+.ui.container.us-mt-30
+  = form_with model: @user, url: user_path, class: 'ui form', id: 'user_form', local: true do |f|
+    .field
+      = f.label :family_name, '氏'
+      = f.text_field :family_name, placeholder: '氏'
+    .field
+      = f.label :family_name, '名'
+      = f.text_field :given_name, placeholder: '名'
+    .field
+      = f.label :family_name, 'ニックネーム'
+      = f.text_field :display_name, placeholder: 'ニックネーム'
+    .field
+      = f.label :family_name, 'メールアドレス'
+      = f.email_field :email, placeholder: 'メールアドレス'
+    .field
+      = f.label :password, 'パスワード'
+      = f.password_field :password, placeholder: 'xxxxxxxx'
+    .field
+      = f.label :password_confirmation, 'パスワード再入力'
+      = f.password_field :password_confirmation, placeholder: 'xxxxxxxx'
+
+    = f.submit '更新', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'
