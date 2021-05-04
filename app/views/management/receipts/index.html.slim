@@ -1,13 +1,32 @@
 / ==============================================================================
 / app - views - management - receipts - index
 / ==============================================================================
-.ui.container.us-p-20
-  - @receipts.each_with_index do |receipt, i|
-    .us-card
-      .grid.ui
-        .two.wide.column
-          = i
-        .four.wide.column
-          = link_to "#{Product.find(receipt.product_id).name}", management_shop_receipt_path(receipt.id)
-        .ten.wide.column
-          = receipt.shop_id
+.ui.container
+  h1.us-pt-10 注文一覧
+  .ui.divider
+
+  .ui.secondary.menu
+    = link_to '未準備', management_shop_receipts_path, class: "item #{@current == 'not_availabled' ? 'active' : ''}"
+    = link_to '準備済み', management_shop_receipts_path(current: 'availabled'), class: "item #{@current == 'availabled' ? 'active' : ''}"
+
+  table.ui.celled.table
+    thead
+      th
+        | 商品名
+      th
+        | ユーザ名
+      th
+        | 注文時間
+      th
+    tbody
+      - @receipts.each do |receipt|
+        tr
+          td
+            = receipt.product.name
+          td
+            = receipt.user.display_name
+          td
+            = receipt.created_at
+          td
+            - unless receipt.is_availabled
+              = link_to '完成', to_availabled_management_shop_receipt_path(receipt), method: :post, class: 'ui button primary', style: 'font-weight: 100'
