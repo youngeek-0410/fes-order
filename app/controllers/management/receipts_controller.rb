@@ -5,7 +5,8 @@ class Management::ReceiptsController < Management::ApplicationController
   before_action :set_receipt, only: [:show, :to_availabled]
 
   def index
-    @receipts = Receipt.where(shop: current_shop, is_availabled: false)
+    @current = params[:current] ? params[:current] : 'not_availabled'
+    @receipts = Receipt.where(shop: current_shop, is_availabled: @current == 'availabled')
   end
 
   def show
