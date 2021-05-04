@@ -1,7 +1,6 @@
 // Loads all Fomantic javascripts
 //= require fomantic-ui
 $(document).on('turbolinks:load', function() {
-
   // Override the default dimmer page behaviour for Sidebar 
   $('.sidebar')
     .sidebar({
@@ -11,4 +10,9 @@ $(document).on('turbolinks:load', function() {
     .sidebar('attach events', '#vk-header-icon-a')
     .sidebar('setting', 'transition', 'push');
 
+  $header_nav_items = $('#header_nav > .item')
+  $header_nav_items.each(function(i) {
+    var path = location.pathname
+    console.log(path)
+  })
 });
