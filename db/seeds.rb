@@ -17,7 +17,8 @@ User.create!(family_name: 'システム', given_name: 'テスト太郎2', displa
   shop = Shop.create!(name: 'リンゴ飴屋', description: 'りんご飴を売ってます。',email: 'ringo@example.com', password: 'password', password_confirmation: 'password')
   shop.image.attach(io: File.open(Rails.root.join('app/assets/images/ringoame.jpg')), filename: 'ringoame.jpg')
   2.times do |i|
-    Product.create!(shop: shop, name: "#{i}.リンゴ飴", description: '美味しいです', price: 91, price_tax: 100, required_minutes: i % 6)
+    product = Product.create!(shop: shop, name: "#{i}.リンゴ飴", description: '美味しいです', price: 91, price_tax: 100, required_minutes: i % 6)
+    product.image.attach(io: File.open(Rails.root.join('app/assets/images/ringoame_product.jpg')), filename: 'ringoame_product.jpg')
   end
 end
 

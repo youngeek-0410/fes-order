@@ -12,5 +12,5 @@
           .us-mt-5.us-fz-18 = product.name
           .us-mt-5.us-fz-14 = slice20(product.description)
         .six.wide.column
-          img.us-img-product src="https://recipe.r10s.jp/recipe-space/d/strg/ctrl/3/3234463525b19e024895fa1a4fc05fa896169e76.12.2.3.2.jpg?interpolation=lanczos-none&fit=around%7C716:716&crop=716:716;*,*"
+          = image_tag product.image, class: 'us-img-product'
     .ui.divider
