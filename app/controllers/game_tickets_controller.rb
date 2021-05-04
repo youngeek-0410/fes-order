@@ -9,9 +9,4 @@ class GameTicketsController < ApplicationController
   def show
     @game_ticket = GameTicket.where(user_id: current_user.id).find(params[:id])
   end
-
-  def create
-    game_ticket = Coupon.new(user: current_user, expired_at: Time.current.end_of_day)
-    game_ticket.save!
-  end
 end
