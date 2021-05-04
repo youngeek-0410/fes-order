@@ -33,8 +33,8 @@ class UsersController < ApplicationController
       @customer.cards.create(
         card: params[:payjp_token],
         default: true,
-      ) if params[:payjp_token]
-      redirect_to @user
+      ) if params[:payjp_token][0, 1] == "tk"
+      redirect_to user_path
     else
       render 'edit'
     end

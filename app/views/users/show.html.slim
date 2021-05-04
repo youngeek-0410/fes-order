@@ -24,8 +24,7 @@
         tr
           th クレジットカード
           td 
-            .us-mb-10 = @user.card.nil? ? '未登録' : "**** **** **** #{@user.card.last4}"
-            script type="text/javascript" src="https://checkout.pay.jp/" class="payjp-button" data-key=ENV['PAYJP_PRIVATE_KEY'] data-submit-text="トークンを作成する" data-partial="true"
+            = @user.card.nil? ? '未登録' : "**** **** **** #{@user.card.last4}"
     = link_to '編集', edit_user_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
     = link_to 'ログアウト', destroy_session_path, method: :delete, class: 'ui button red', style: 'font-weight: 100'
 
