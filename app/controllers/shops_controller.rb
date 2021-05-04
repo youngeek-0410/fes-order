@@ -3,7 +3,9 @@
 # ==============================================================================
 class ShopsController < ApplicationController
   def index
-    @pagy, @shops = pagy Shop.all
+    @shops = Shop.all
+    @shops = @shops.where("name LIKE ?", "%#{params[:q]}%") if params[:q]
+    @pagy, @shops = pagy @shops
   end
 
   def show
