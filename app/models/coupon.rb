@@ -15,6 +15,6 @@ class Coupon < ApplicationRecord
 
   scope :ramdom1, -> (unexpect_shop_id) { 
     shop = self.select("shop_id").where.not("shop_id == #{unexpect_shop_id}").order("RANDOM()").first() 
-    shop.nil? ? self : shop
+    shop.nil? ? self.find(unexpect_shop_id) : shop
   }
 end
