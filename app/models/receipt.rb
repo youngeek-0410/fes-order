@@ -10,7 +10,6 @@ class Receipt < ApplicationRecord
 
   validates :price, presence: true
   validates :price_tax, presence: true
-  validates :is_used, presence: true
   validates :charge_id, presence: true
 
   def to_used

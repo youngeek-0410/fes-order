@@ -15,11 +15,7 @@ class ReceiptsController < ApplicationController
     shop_id = params[:shop_id]
     product_id = [:product_id]
 
-    previous = shop_product_path(shop_id, product_id)
-
-    unless order = Order.create!(product_id: product_id, count: params[:count])
-      render: previous
-    end
+    order = Order.create!(product_id: product_id, count: params[:count])
 
     price = order.product.price * order.count
     price_tax = order.product.price_tax * order.count
@@ -38,14 +34,10 @@ class ReceiptsController < ApplicationController
       charge_id: charge.id,
     }
 
-    unless receipt = Receipt.create!(receipts_params)
-      render: previous
+    receipt = Receipt.create!(receipts_params)
 
-    if GameTicket.create!(user: current_user, expired_at: Time.current.end_of_day, shop_id: receipt.shop_id, product_id: receipt.product_id)
-      redirect_to user_receipts_path
-    else
-      render: previous
-    end
+    GameTicket.create!(user: current_user, expired_at: Time.current.end_of_day, shop_id: receipt.shop_id, product_id: receipt.product_id)
+    redirect_to user_receipts_path
   end
 
   def to_used
