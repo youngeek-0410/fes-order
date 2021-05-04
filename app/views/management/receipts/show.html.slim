@@ -1,8 +1,0 @@
-/ ==============================================================================
-/ app - views - management - receipts - show
-/ ==============================================================================
-p
-  = Product.find(@receipt.product_id).name
-  = Order.find(@receipt.order_id).count
-p 
-  = link_to '完成', {controller: 'receipts', action: 'to_availabled', id: @receipt.id}, method: :post
