@@ -8,16 +8,18 @@ html
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no')
     = javascript_pack_tag 'application'
+    = stylesheet_link_tag 'application'
     = csrf_meta_tags
     title event_payment_app 管理画面
   body
     / side bar
     .ui.inverted.left.inline.vertical.visible.sidebar.menu.icon.demo
       = link_to management_root_path, class: 'item' do
-        i.home.icon.big
-
+        i.home.icon.huge
+      = link_to management_shop_receipts_path, class: 'item' do
+        i.shopping.bag.icon.huge
       = link_to management_destroy_session_path, method: :delete, class: 'item' do
-        i.sign.out.icon.big
+        i.sign.out.icon.huge
 
     / main contents
     .pusher style="width: calc(100% - 260px);"

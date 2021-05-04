@@ -3,17 +3,14 @@
 # ==============================================================================
 class Management::ReceiptsController < Management::ApplicationController
   def index
-    @receipt = Receipt.where(shop: current_shop, is_used: false)
+    @current = params[:current] ? params[:current] : 'not_availabled'
+    @receipts = Receipt.where(shop: current_shop, is_availabled: @current == 'availabled')
   end
 
-  def show
-    @receipt = Receipt.where(shop: current_shop).find(param[:id])
-  end
-  
   def to_availabled
-    receipt = Receipt.where(shop: current_shop).find(params[:id])
+    receipt = Receipt.find(params[:id])
     receipt.to_availabled
-    flash.now[:info] = "#{receipt.product.name}が受け取り可能になりました。"
+    flash[:info] = "#{receipt.product.name}が受け取り可能になりました。"
     redirect_to management_shop_receipts_path
   end
 end
