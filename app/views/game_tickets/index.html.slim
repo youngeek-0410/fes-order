@@ -5,5 +5,6 @@
       br
       | 商品を買ってチケットをためよう！
   - else
-    = link_to 'クイズを始める', user_game_ticket_path(@game_tickets.first), class: 'ui button orange'
-    p = "#{@game_tickets.count}回プレイできます"
+    .us-center style="padding-top: 250px"
+      = link_to 'クイズを始める', user_game_ticket_path(@game_tickets.first), class: 'ui button orange', style: 'font-size: 24px'
+      .us-mt-5 = "#{@game_tickets.count}回プレイできます"
