@@ -5,7 +5,7 @@
 
 require("jquery")
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("fomantic-ui/dist/semantic.min.css")

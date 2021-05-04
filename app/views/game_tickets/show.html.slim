@@ -1,3 +1,3 @@
-h1 クイズ
-p data-x=@game_ticket.id
-= link_to 'クーポンを受け取る', user_coupons_path( params: { coupon: { name: '割引クーポン1', discount: 10, user_id: session[:user_id] } }), method: :post
+quiz-root
+
+= javascript_pack_tag 'quiz_angular'
