@@ -31,5 +31,5 @@ Coupon.create!(name: '割引クーポンE', discount: 50, user: user, expired_at
 N = 20
 N.times do |i|
   Quiz.create!(description: '正解はどれでしょう？', content1: "#{i}!}", content2: "#{i + 1}!", content3: "#{i + 1}!", answer: N % 3 + 1)
-  GameTicket.create!(user: user, shop: Shop.find(1))
+  GameTicket.create!(user: user, expired_at: Time.current.end_of_day, shop: Shop.find(1))
 end
