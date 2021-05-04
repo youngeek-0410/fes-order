@@ -3,7 +3,6 @@
 / ==============================================================================
 
 = form_with url: management_session_path, class: 'form ui form', method: :post, local: true do |f|
-
   .field
     = label_tag :email, 'メールアドレス'
     = email_field_tag :email, @email, placeholder: 'email@example.com'
