@@ -1,0 +1,9 @@
+.image
+  = image_tag @receipt.product.image, class: 'us-img-shop'
+.ui.container
+  h2 = @receipt.product.name
+  p.us-fz-14 = "￥#{@receipt.price_tax}"
+  p.us-fz-14 = @receipt.shop.name
+
+  = form_with url: to_used_user_receipt_path(@receipt), class: 'ui form', local: true do |f|
+    = f.submit '受け取り', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 50px;'

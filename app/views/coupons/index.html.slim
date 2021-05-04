@@ -5,4 +5,9 @@
         .three.wide.column
           = image_tag coupon.shop.image, class: 'us-img-product'
         .ten.wide.column
-          = "#{coupon.shop.name} #{coupon.discount}円引き#{coupon.name}"
+          = coupon.name
+  - if @coupons.count > 1
+    .ui.center.aligned.grid.pagination style="margin-top: 20px"
+      == pagy_semantic_nav(@pagy)
+  - else
+    .us-not-avalilable 現在、使用可能なクーポンはありません。

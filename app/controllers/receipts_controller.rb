@@ -3,7 +3,8 @@
 # ==============================================================================
 class ReceiptsController < ApplicationController
   def index
-    @pagy, @receipts = pagy Receipt.includes([:product, :shop, :coupon]).where(user: current_user, is_used: false)
+    @current = params[:current] ? params[:current] : 'not_used'
+    @pagy, @receipts = pagy Receipt.includes([:product, :shop, :coupon]).where(user: current_user, is_used: @current == 'used')
   end
 
   def show
