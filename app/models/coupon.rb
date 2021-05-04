@@ -2,7 +2,7 @@
 # app - models - coupon
 # ==============================================================================
 class Coupon < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_one :receipt
   belongs_to :shop
   validates :name, presence: true

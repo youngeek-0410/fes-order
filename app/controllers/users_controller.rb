@@ -41,6 +41,16 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user.receipts.each do |receipt|
+      receipt.user_id = nil
+      receipt.save!
+    end
+
+    @user.coupons.each do |coupon|
+      coupon.user_id = nil
+      coupon.save!
+    end
+
     @user.destroy
     redirect_to :root
   end
