@@ -13,9 +13,9 @@
           .ui.divider
           - if receipt.is_availabled && @current == 'not_used'
             .ui.blue.message 受け渡し可能
-    - if @receipts.empty?
-      .us-not-avalilable 購入商品はありません。
-    - else
-      .ui.center.aligned.grid.pagination style="margin-top: 20px"
-        == pagy_semantic_nav(@pagy)
+  - if @receipts.empty?
+    .us-not-avalilable 購入商品はありません。
+  - else
+    .ui.center.aligned.grid.pagination style="margin-top: 20px"
+      == pagy_semantic_nav(@pagy)
 
