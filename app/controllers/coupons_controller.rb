@@ -2,6 +2,7 @@
 # app - controller - coupons
 # ==============================================================================
 class CouponsController < ApplicationController
+  skip_forgery_protection
   def index
     @pagy, @coupons = pagy Coupon.includes(:shop).where(user: current_user, is_used: false)
   end

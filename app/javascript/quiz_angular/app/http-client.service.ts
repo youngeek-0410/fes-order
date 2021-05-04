@@ -12,6 +12,7 @@ export class HttpClientService {
   };
 
   private quizUrl: string = '/quizzes';
+  private couponUrl: string = '/user/coupons';
   private shop_id;
 
   constructor(private http: HttpClient) {
@@ -29,8 +30,8 @@ export class HttpClientService {
     return this.shop_id;
   }
 
-  public post(parm: any): Observable<any> {
-    return this.http.post<any>(this.quizUrl + '/create', parm, this.httpOptions);
+  public post(params: any): Observable<any> {
+    return this.http.post<any>(this.couponUrl, params, this.httpOptions);
   }
 
   private errorHandler(err) {

@@ -6,13 +6,8 @@ import { QuizService } from '../quiz.service';
   selector: 'app-quiznair',
   template: `
     <div *ngIf="isOnLastQuestion">
-      <p> {{quizNum}}問中{{lastScore}}正解です！ </p>
-      <form method="post" name="create_coupons" action="#", th:action="@{/}">
-        <input type="hidden" name="name" value={{params.name}}>
-        <input type="hidden" name="discount" value={{params.discount}}>
-        <input type="hidden" name="shop_id" value={{params.shop_id}}>
-        <a href="javascript:forml.submit()">クーポンを受け取る</a>
-      </form>
+      <p> {{quizNum}}問中{{lastScore}}問正解です！ </p>
+      <a (click)="createCoupon()"> クーポンを受け取る </a>
     </div>
     <div *ngIf="!isOnLastQuestion">
       <app-question [nextQuestion]="nextQuiz"></app-question>
@@ -27,17 +22,19 @@ export class QuestionnairComponent implements OnInit {
   quizNum = 0;
 
   params = {
-    name: "割引券",
     discount: 10,
     shop_id: 0
   };
 
-  constructor(
-    private quizService: QuizService) { }
+  constructor( private quizService: QuizService ) { }
 
   async ngOnInit() {
     await this.quizService.getQuizes().toPromise();
     this.nextQuiz = this.quizService.getNextQuiz();
+  }
+
+  createCoupon() {
+    this.quizService.endQuiz(this.params);
   }
 
   next(score: number) {

@@ -14,4 +14,8 @@ class Shop < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
 
+  scope :ramdom1, -> (unexpect_shop_id) { 
+    shop = self.where.not(id: unexpect_shop_id).order("RANDOM()").first() 
+    shop.nil? ? self.find(unexpect_shop_id) : shop
+  }
 end
