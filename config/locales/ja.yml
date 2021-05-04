@@ -2,3 +2,10 @@ ja:
   activerecord:
     models:
     attributes:
+      user:
+        family_name: 苗字
+        given_name: 名前
+        display_name: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(再入力)
