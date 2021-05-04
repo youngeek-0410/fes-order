@@ -8,8 +8,8 @@
       .image
         = image_tag shop.image, class: 'us-img-shop'
       .content
-        .header = shop.name
-        .description = slice20(shop.description)
+        .us-mt-5.us-fz-18 = shop.name
+        .us-mt-5.us-fz-14 = slice20(shop.description)
 - if @shops.count > 1
   .ui.center.aligned.grid.pagination style="margin-top: 20px"
     == pagy_semantic_nav(@pagy)
