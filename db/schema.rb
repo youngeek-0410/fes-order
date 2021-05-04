@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
   create_table "game_tickets", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.boolean "is_used", default: false, null: false
+    t.datetime "expired_at", null: false
     t.bigint "shop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
