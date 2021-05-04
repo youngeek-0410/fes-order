@@ -1,3 +1,6 @@
+= form_with url: root_path, method: :get, local: true do
+  = text_field_tag :q, params[:q], placeholder: '名前で検索'
+  = submit_tag '検索'
 - @shops.each do |shop|
   .ui.centered.horizontal.card
     = link_to shop_path(shop), method: :get do
@@ -6,5 +9,6 @@
       .content
         .header = shop.name
         .description = slice20(shop.description)
-.ui.center.aligned.grid.pagination
-  == pagy_semantic_nav(@pagy)
+- if @shops.count > 1
+  .ui.center.aligned.grid.pagination
+    == pagy_semantic_nav(@pagy)
