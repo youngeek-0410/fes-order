@@ -28,7 +28,7 @@ html
         .title
           | システム管理者
       = link_to management_sendgrid_membership_email_global_templates_path, class: 'item ui inverted' do
-       .title
+      .title
           | Web 課金メールテンプレート管理
       = link_to management_destroy_session_path, method: :delete, class: 'item ui inverted' do
         .title
@@ -42,4 +42,4 @@ html
           .row.notification
             = management_alert_tag
         == yield
- 
+        
