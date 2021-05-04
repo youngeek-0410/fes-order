@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = current_user
+    @user = User.find(session[:user_id])
   end
 
   def set_customer
