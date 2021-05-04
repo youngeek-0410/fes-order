@@ -29,10 +29,8 @@ a {
   width: 20%;
 }
 
-.us-header {
-  z-index: 10000;
-  position: fixed;
-  bottom: 0;
+.us-mt-20 {
+  margin-top: 20px;
 }
 
 .us-fz-12 {
@@ -43,6 +41,12 @@ a {
   i, span {
     color: #2185d0;
   }
+}
+
+.us-header {
+  z-index: 10000;
+  position: fixed;
+  bottom: 0;
 }
 
 .us-inactive {

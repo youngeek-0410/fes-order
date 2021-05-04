@@ -1,6 +1,7 @@
-= form_with url: root_path, method: :get, local: true do
-  = text_field_tag :q, params[:q], placeholder: '名前で検索'
-  = submit_tag '検索'
+= form_with url: root_path, method: :get, class: 'ui search us-mt-20', local: true do
+  .ui.icon.input.us-w-100
+    = text_field_tag :q, params[:q], placeholder: '名前で検索', class: 'prompt'
+    i.search.icon
 - @shops.each do |shop|
   .ui.centered.horizontal.card
     = link_to shop_path(shop), method: :get do
