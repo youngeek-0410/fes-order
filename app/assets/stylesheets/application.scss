@@ -21,6 +21,11 @@ a {
   }
 }
 
+p, h2 {
+  font-weight: 400;
+  margin: 0;
+}
+
 .us-w-100 {
   width: 100%;
 }
@@ -61,11 +66,21 @@ a {
   font-size: 18px;
 }
 
+.us-flex {
+  display: flex;
+}
+
 .us-img-shop {
   width: 100%;
   height: 150px;
   object-fit: cover;
 }
+
+.us-img-product {
+  width: 50px;
+  object-fit: cover;
+}
+
 
 .us-background {
   min-height: 100%;
