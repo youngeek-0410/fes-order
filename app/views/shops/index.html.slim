@@ -3,7 +3,7 @@
     = text_field_tag :q, params[:q], placeholder: '名前で検索', class: 'prompt'
     i.search.icon
 - @shops.each do |shop|
-  .ui.centered.horizontal.card
+  .ui.centered.horizontal.card style="box-shadow: 0 0 0 0"
     = link_to shop_path(shop), method: :get, class: 'us-p-10' do
       .image
         = image_tag shop.image, class: 'us-img-shop'
@@ -11,5 +11,5 @@
         .header = shop.name
         .description = slice20(shop.description)
 - if @shops.count > 1
-  .ui.center.aligned.grid.pagination
+  .ui.center.aligned.grid.pagination style="margin-top: 20px"
     == pagy_semantic_nav(@pagy)

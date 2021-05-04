@@ -29,6 +29,10 @@ a {
   width: 20%;
 }
 
+.us-h-100-px {
+  height: 100px;
+}
+
 .us-p-10 {
   padding: 10px;
 }
@@ -48,7 +52,7 @@ a {
 }
 
 .us-background {
-  height: 100%;
+  min-height: 100%;
   background: #f7f7f7;
 }
 
