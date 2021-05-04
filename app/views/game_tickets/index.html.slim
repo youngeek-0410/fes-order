@@ -1,3 +1,9 @@
-p = "#{@game_tickets.count}回プレイできます"
-- unless @game_tickets.empty?
-  = link_to 'クイズを始める', user_game_ticket_path(@game_tickets.first)
+.ui.container
+  - if @game_tickets.empty?
+    .us-not-avalilable 
+      | ゲームできない、、
+      br
+      | 商品を買ってチケットをためよう！
+  - else
+    = link_to 'クイズを始める', user_game_ticket_path(@game_tickets.first), class: 'ui button orange'
+    p = "#{@game_tickets.count}回プレイできます"

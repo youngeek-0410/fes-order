@@ -14,10 +14,11 @@ html
     / side bar
     .ui.inverted.left.inline.vertical.visible.sidebar.menu.icon.demo
       = link_to management_root_path, class: 'item' do
-        i.home.icon.big
-
+        i.home.icon.huge
+      = link_to management_shop_receipts_path, class: 'item' do
+        i.shopping.bag.icon.huge
       = link_to management_destroy_session_path, method: :delete, class: 'item' do
-        i.sign.out.icon.big
+        i.sign.out.icon.huge
 
     / main contents
     .pusher style="width: calc(100% - 260px);"
