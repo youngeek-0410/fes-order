@@ -5,5 +5,8 @@
   p.us-fz-14 = "￥#{@receipt.price_tax}"
   p.us-fz-14 = @receipt.shop.name
 
-  = form_with url: to_used_user_receipt_path(@receipt), class: 'ui form', local: true do |f|
-    = f.submit '受け取り', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 50px;'
+  - if @receipt.is_availabled && !@receipt.is_used
+    .ui.blue.message.us-w-100 受け渡し可能
+  - if !@receipt.is_used
+    = form_with url: to_used_user_receipt_path(@receipt), class: 'ui form', local: true do |f|
+      = f.submit '受け取り', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 50px;'
