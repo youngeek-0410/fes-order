@@ -3,7 +3,7 @@
 # ==============================================================================
 class CouponsController < ApplicationController
   def index
-    @pagy, @coupons = pagy Coupon.where(user: current_user, is_used: false)
+    @pagy, @coupons = pagy Coupon.includes(:shop).where(user: current_user, is_used: false)
   end
 
   def create
