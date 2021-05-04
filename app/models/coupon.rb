@@ -7,6 +7,7 @@ class Coupon < ApplicationRecord
   belongs_to :shop
   validates :name, presence: true
   validates :discount, presence: true
+  validates :expired_at, presence: true
 
   def to_used
     self.is_used = true
