@@ -13,8 +13,8 @@ customer2 = Payjp::Customer.create
 user = User.create!(family_name: 'システム', given_name: 'テスト太郎1', display_name: '太郎1',email: 'test1@example.com', password: 'password', password_confirmation: 'password', customer_id: customer1.id)
 User.create!(family_name: 'システム', given_name: 'テスト太郎2', display_name: '太郎2',email: 'test2@example.com', password: 'password', password_confirmation: 'password', customer_id: customer2.id)
 
-40.times do
-  shop = Shop.create!(name: 'リンゴ飴屋', description: 'りんご飴を売ってます。',email: 'ringo@example.com', password: 'password', password_confirmation: 'password')
+40.times do |i|
+  shop = Shop.create!(name: 'リンゴ飴屋', description: 'りんご飴を売ってます。',email: "ringo#{i}@example.com", password: 'password', password_confirmation: 'password')
   shop.image.attach(io: File.open(Rails.root.join('app/assets/images/ringoame.jpg')), filename: 'ringoame.jpg')
   2.times do |i|
     product = Product.create!(shop: shop, name: "#{i}.リンゴ飴", description: '美味しいです', price: 91, price_tax: 100, required_minutes: i % 6)
