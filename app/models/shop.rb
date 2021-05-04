@@ -3,8 +3,8 @@
 # ==============================================================================
 class Shop < ApplicationRecord
   has_many :products
-  has_many :coupon
-  has_many :game_ticket
+  has_many :coupons
+  has_many :game_tickets
   has_one :receipt
 
   has_secure_password
