@@ -7,7 +7,12 @@ import { QuizService } from '../quiz.service';
   template: `
     <div *ngIf="isOnLastQuestion">
       <p> {{quizNum}}問中{{lastScore}}正解です！ </p>
-      <a href="http://localhost:3000/user/coupons">クーポンを受け取る</a>
+      <form method="post" name="create_coupons" action="/user/coupons">
+        <input type="hidden" name="name" value={{params.name}}>
+        <input type="hidden" name="discount" value={{params.discount}}>
+        <input type="hidden" name="shop_id" value={{params.shop_id}}>
+        <input type="submit" value="クーポンを受け取る">
+      </form>
     </div>
     <div *ngIf="!isOnLastQuestion">
       <app-question [nextQuestion]="nextQuiz"></app-question>
@@ -24,7 +29,7 @@ export class QuestionnairComponent implements OnInit {
   params = {
     name: "割引券",
     discount: 10,
-    shop_id: 1
+    shop_id: 0
   };
 
   constructor(
@@ -44,6 +49,7 @@ export class QuestionnairComponent implements OnInit {
       this.lastScore = score;
       this.quizNum = this.quizService.quizIndex;
       this.params.discount = Math.ceil(50*(this.lastScore/this.quizNum)/10)*10;
+      this.params.shop_id = this.quizService.getShopId();
       console.log(this.params.discount);
     }
   }
