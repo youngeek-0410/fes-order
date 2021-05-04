@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
   end
 
   create_table "coupons", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.string "name", null: false
     t.integer "discount", null: false
     t.boolean "is_used", default: false, null: false
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
   end
 
   create_table "receipts", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.bigint "shop_id", null: false
     t.bigint "product_id", null: false
     t.bigint "coupon_id"

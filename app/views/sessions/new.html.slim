@@ -1,15 +1,18 @@
 / ==============================================================================
 / app - views - sessions - new
 / ==============================================================================
-
-= form_with url: session_path, class: 'form ui form', method: :post, local: true do |f|
-
-  .field
-    = label_tag :email, 'メールアドレス'
-    = email_field_tag :email, @email, placeholder: 'email@example.com'
-    
-  .field
-    = label_tag :password, 'パスワード'
-    = password_field_tag :password
-  
-  = submit_tag "ログイン", class: 'ui button'
+.ui.container.us-pt-100
+  = form_with url: session_path, class: 'form ui form', method: :post, local: true do |f|
+    .field
+      = label_tag :email, 'メールアドレス'
+      = email_field_tag :email, @email, placeholder: 'email@example.com'
+    .field
+      = label_tag :password, 'パスワード'
+      = password_field_tag :password
+    = submit_tag "ログイン", class: 'ui button primary us-w-100'
+  .ui.horizontal.divider または
+  .us-center
+    = link_to new_user_path  do
+      .ui.teal.labeled.icon.button.us-fw-100.us-w-60
+        新規登録
+        i.add.icon

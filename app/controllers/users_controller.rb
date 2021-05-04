@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     customer = Payjp::Customer.create
     @user.customer_id = customer.id
     if @user.save
+      flash.now[:success] = 'ユーザ情報を登録しました。'
       redirect_to root_path
     else
       render 'new'
@@ -33,15 +34,27 @@ class UsersController < ApplicationController
       @customer.cards.create(
         card: params[:payjp_token],
         default: true,
-      ) if params[:payjp_token]
-      redirect_to @user
+      ) if params[:payjp_token][0, 3] == "tok"
+      flash.now[:success] = 'ユーザ情報を更新しました。'
+      redirect_to user_path
     else
       render 'edit'
     end
   end
 
   def destroy
+    @user.receipts.each do |receipt|
+      receipt.user_id = nil
+      receipt.save!
+    end
+
+    @user.coupons.each do |coupon|
+      coupon.user_id = nil
+      coupon.save!
+    end
+
     @user.destroy
+    flash.now[:success] = '退会が完了しました。'
     redirect_to :root
   end
 

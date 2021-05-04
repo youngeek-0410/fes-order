@@ -2,10 +2,9 @@
 # app - models - users
 # ==============================================================================
 class User < ApplicationRecord
-  has_many :receipt
-  has_many :order
-  has_many :game_ticket, dependent: :destroy
-  has_many :coupon, dependent: :destroy
+  has_many :receipts
+  has_many :game_tickets, dependent: :destroy
+  has_many :coupons
   has_secure_password
 
   validates :family_name, presence: true
