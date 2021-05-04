@@ -32,6 +32,8 @@ class ReceiptsController < ApplicationController
 
     receipt = Receipt.create!(receipts_params)
     GameTicket.create!(user: current_user, expired_at: Time.current.end_of_day, shop_id: receipt.shop_id, product_id: receipt.product_id)
+    
+    Coupon.find(coupon).to_used
     redirect_to user_receipts_path
   end
 
