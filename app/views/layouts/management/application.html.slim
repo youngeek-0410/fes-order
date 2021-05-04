@@ -9,37 +9,18 @@ html
     meta(name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no')
     = javascript_pack_tag 'application'
     = csrf_meta_tags
-    title event_payment_app管理画面
+    title event_payment_app 管理画面
   body
     / side bar
-    .ui.inverted.left.inline.vertical.visible.sidebar.menu
-      = link_to management_root_path, class: 'item banner' do
-        h3 管理画面 - Event Payment App
-        .title
-          i.user.icon
-          = current_system_admin.name
-          br
-          = current_system_admin.email
+    .ui.inverted.left.inline.vertical.visible.sidebar.menu.icon.demo
+      = link_to management_root_path, class: 'item' do
+        i.home.icon.big
 
-      = link_to management_groups_path, class: 'item ui inverted' do
-        .title
-          | グループの追加・編集
-      = link_to management_system_admins_path, class: 'item ui inverted' do
-        .title
-          | システム管理者
-      = link_to management_sendgrid_membership_email_global_templates_path, class: 'item ui inverted' do
-      .title
-          | Web 課金メールテンプレート管理
-      = link_to management_destroy_session_path, method: :delete, class: 'item ui inverted' do
-        .title
-          i.sign.out.icon
-          | ログアウト
+      = link_to management_destroy_session_path, method: :delete, class: 'item' do
+        i.sign.out.icon.big
 
     / main contents
     .pusher style="width: calc(100% - 260px);"
       .ui.container
-        - if flash.present?
-          .row.notification
-            = management_alert_tag
         == yield
         

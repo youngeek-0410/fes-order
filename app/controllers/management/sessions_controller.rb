@@ -4,7 +4,9 @@
 class Management::SessionsController < Management::ApplicationController
   skip_before_action :authenticate!, only: [:new, :create]
 
-    return redirect_to management_root_path if authenticated?
+  layout 'management/sign_in'
+
+  def new
   end
 
   def create
