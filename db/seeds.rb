@@ -10,10 +10,29 @@ user = User.create!(family_name: '木村', given_name: '拓哉', display_name: '
 # =================================================================
 # Shop & Product
 # =================================================================
-shop = Shop.create!(name: 'リンゴ飴屋', description: 'りんご飴を売ってます。',email: "ringo#{i}@example.com", password: 'password', password_confirmation: 'password')
-shop.image.attach(io: File.open(Rails.root.join('app/assets/images/ringoame.jpg')), filename: 'ringoame.jpg')
-product = Product.create!(shop: shop, name: "#{i}.リンゴ飴", description: '美味しいです', price: 91, price_tax: 100, required_minutes: i % 6)
-product.image.attach(io: File.open(Rails.root.join('app/assets/images/ringoame_product.jpg')), filename: 'ringoame_product.jpg')
+shop = Shop.create!(name: '屋台 東京名物 肉巻きおにぎり', description: '白ゴマ肉巻　/　チーズ肉巻　/　ねぎマヨ肉巻　/　タルタル肉巻　/　黒のり肉巻　/　キムチ肉巻　/　辛マヨ肉巻　全7種',email: "nikumaki@example.com", password: 'password', password_confirmation: 'password')
+shop.image.attach(io: File.open(Rails.root.join('app/assets/images/nikumakionigiri-shop.png')), filename: 'nikumakionigiri-shop.png')
+
+Product.create!(shop: shop, name: "肉巻きおにぎり 白ゴマ肉巻", description: '1番人気！', price: 91, price_tax: 350, required_minutes: 3)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/nikumakionigiri-product.png')), filename: 'nikumakionigiri-prodct.png')
+
+Product.create!(shop: shop, name: "肉巻きおにぎり チーズ肉巻", description: '', price: 91, price_tax: 350, required_minutes: 3)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/nikumakionigiri-product.png')), filename: 'nikumakionigiri-prodct.png')
+
+Product.create!(shop: shop, name: "肉巻きおにぎり ネギマヨ肉巻", description: '', price: 91, price_tax: 350, required_minutes: 3)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/nikumakionigiri-product.png')), filename: 'nikumakionigiri-prodct.png')
+
+Product.create!(shop: shop, name: "肉巻きおにぎり タルタル肉巻", description: '', price: 91, price_tax: 350, required_minutes: 3)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/nikumakionigiri-product.png')), filename: 'nikumakionigiri-prodct.png')
+
+Product.create!(shop: shop, name: "肉巻きおにぎり 黒のり肉巻", description: '', price: 91, price_tax: 350, required_minutes: 3)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/nikumakionigiri-product.png')), filename: 'nikumakionigiri-prodct.png')
+
+Product.create!(shop: shop, name: "肉巻きおにぎり キムチ肉巻", description: '辛いのが苦手なお子様はお控えください。', price: 91, price_tax: 350, required_minutes: 3)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/nikumakionigiri-product.png')), filename: 'nikumakionigiri-prodct.png')
+
+Product.create!(shop: shop, name: "肉巻きおにぎり からマヨ肉巻", description: '辛いのが苦手なお子様はお控えください。', price: 91, price_tax: 350, required_minutes: 3)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/nikumakionigiri-product.png')), filename: 'nikumakionigiri-prodct.png')
 
 # =================================================================
 # Quiz
