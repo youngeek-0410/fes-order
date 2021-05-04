@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+a {
+  color: inherit;
+  div:active {
+    color: #000000;
+  }
+}
+

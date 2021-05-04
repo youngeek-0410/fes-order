@@ -9,37 +9,19 @@ html
     meta(name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no')
     = javascript_pack_tag 'application'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application'
     = csrf_meta_tags
     title event_payment_app
 
   body
     .ui.container
-      /! Left Sidebar
-      #left-sidebar.ui.left.vertical.sidebar.menu
-        = link_to root_path, class: 'item' do
-          i.home.icon
-          | Home
-        - if authenticated?
-          = link_to destroy_session_path, class: 'item', method: :delete do
-            i.power.off.icon
-            | Logout
-
-      #main-content.pusher
-        /! Top Fixed Menu
-        #top-header.ui.top.fixed.menu
-          a#vk-header-icon-a.item
-            i.big.bars.icon.vk-header-icon
-
-        /! Page Content Here
-        #main-body-content.row
-          .thirteen.wide.column
-            .ui.top.attached.header style="height:60px;" 
-              h2#vk-col-header-text Service
-            .ui.bottom.attached.segment
-              - if flash.present?
-                .ui.warning.message
-                  i.close.icon
-                  .header
-                    - flash.each do |message_type, message|
-                      = message
-              == yield
+      .row
+        .thirteen.wide.column
+          .ui.bottom.attached.segment
+            - if flash.present?
+              .ui.warning.message
+                i.close.icon
+                .header
+                  - flash.each do |message_type, message|
+                    = message
+            == yield
