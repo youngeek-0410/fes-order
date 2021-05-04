@@ -22,9 +22,10 @@ class UsersController < ApplicationController
     customer = Payjp::Customer.create
     @user.customer_id = customer.id
     if @user.save
-      flash.now[:success] = 'ユーザ情報を登録しました。'
+      flash[:success] = 'ユーザ情報を登録しました。'
       redirect_to root_path
     else
+      flash[:error] = 'ユーザ登録に失敗しました。'
       render 'new'
     end
   end
@@ -35,9 +36,10 @@ class UsersController < ApplicationController
         card: params[:payjp_token],
         default: true,
       ) if params[:payjp_token][0, 3] == "tok"
-      flash.now[:success] = 'ユーザ情報を更新しました。'
+      flash[:success] = 'ユーザ情報を更新しました。'
       redirect_to user_path
     else
+      flash[:error] = 'ユーザ更新に失敗しました。'
       render 'edit'
     end
   end
@@ -54,7 +56,7 @@ class UsersController < ApplicationController
     end
 
     @user.destroy
-    flash.now[:success] = '退会が完了しました。'
+    flash[:success] = '退会が完了しました。'
     redirect_to :root
   end
 

@@ -32,8 +32,9 @@ html
         span.ui.small.text マイページ
 
     .us-background
-      .ui.container.us-pt-10
+      .ui.container
         - flash.each do |key, value|
-          = content_tag(:div, value, class: "#{key} ui message")
+          .us-pt-10
+            = content_tag(:div, value, class: "#{key} ui message us-mt-10")
       == yield
       .us-h-100-px
