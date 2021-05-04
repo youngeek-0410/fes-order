@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Quiz } from './quiz';
 import { HttpClientService } from './http-client.service';
-import { SlicePipe } from '@angular/common';
 
 @Injectable()
 export class QuizService {
@@ -23,21 +22,22 @@ export class QuizService {
     this.httpService.get().subscribe(
       quizzes => {
         this.allQuizes = quizzes;
-        console.log(quizzes);
+        console.log(this.allQuizes);
       });
   }
 
   isLastQuiz() {
-    console.log("quiznair.component");
+    console.log("isLastQuiz");
     return this.quizIndex == this.allQuizes.length;
   }
 
   getNextQuiz() {
-    console.log("quiznair.component");
+    console.log("getNextQuiz");
     return this.allQuizes[this.quizIndex++];
   }
 
   endQuiz(score: number) {
+    console.log("endQuiz");
     this.parms.discount = score;
     this.httpService.post(this.parms);
   }

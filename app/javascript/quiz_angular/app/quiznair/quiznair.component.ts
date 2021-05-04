@@ -19,7 +19,6 @@ export class QuestionnairComponent implements OnInit {
 
   ngOnInit() {
     this.nextQuiz = this.quizService.getNextQuiz();
-    console.log("quiznair.component");
   }
 
   next(score: number) {
