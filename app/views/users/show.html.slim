@@ -25,5 +25,7 @@
           th クレジットカード
           td = @user.card.nil? ? '未登録' : "**** **** **** #{@user.card.last4}"
     = link_to '編集', edit_user_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
-    = link_to '退会', user_path, method: :delete, class: 'ui button red', style: 'font-weight: 100'
+    = link_to 'ログアウト', destroy_session_path, method: :delete, class: 'ui button red', style: 'font-weight: 100'
 
+.us-center.us-mt-20
+  = link_to '退会はこちら', user_path, method: :delete
