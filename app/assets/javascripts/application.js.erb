@@ -1,18 +1,30 @@
 // Loads all Fomantic javascripts
 //= require fomantic-ui
 $(document).on('turbolinks:load', function() {
-  // Override the default dimmer page behaviour for Sidebar 
-  $('.sidebar')
-    .sidebar({
-      dimPage: false,
-      closable: false,
-    })
-    .sidebar('attach events', '#vk-header-icon-a')
-    .sidebar('setting', 'transition', 'push');
+  const shop_regex = /\/shops[a-z, 0-9, /]*/
+  const game_ticket_regex = /\/user\/game_tickets[a-z, 0-9, /]*/
+  const receipt_regex = /\/user\/receipts[a-z, 0-9, /]*/
+  const coupon_regex = /\/user\/coupons[a-z, 0-9, /]*/
+  const user_regex = /\/user/
 
-  $header_nav_items = $('#header_nav > .item')
-  $header_nav_items.each(function(i) {
-    var path = location.pathname
-    console.log(path)
-  })
+  var path = location.pathname
+
+  $("#header_nav > a").addClass("us-inactive")
+
+  if (shop_regex.test(path) || path == "/") {
+    $("#home_nav").removeClass("us-inactive")
+    $("#home_nav").addClass("us-active")
+  } else if(game_ticket_regex.test(path)) {
+    $("#game_ticket_nav").removeClass("us-inactive")
+    $("#game_ticket_nav").addClass("us-active")
+  } else if(receipt_regex.test(path)) {
+    $("#receipt_nav").removeClass("us-inactive")
+    $("#receipt_nav").addClass("us-active")
+  } else if(coupon_regex.test(path)) {
+    $("#coupon_nav").removeClass("us-inactive")
+    $("#coupon_nav").addClass("us-active")
+  } else {
+    $("#user_nav").removeClass("us-inactive")
+    $("#user_nav").addClass("us-active")
+  }
 });

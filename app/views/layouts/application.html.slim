@@ -15,19 +15,19 @@ html
 
   body
     #header_nav.ui.labeled.icon.menu.us-w-100.us-header style="margin: 0"
-      = link_to root_path, class: "item us-w-20 us-fz-12 us-active", style: "min-width: 0" do
+      = link_to root_path, class: "item us-w-20 us-fz-12", id: "home_nav",style: "min-width: 0" do
         i.icon.home
         span.ui.small.text ホーム
-      = link_to user_game_tickets_path(current_user), class: "item us-w-20 us-fz-12 us-inactive", style: "min-width: 0" do
+      = link_to user_game_tickets_path, class: "item us-w-20 us-fz-12", id: "game_ticket_nav", style: "min-width: 0" do
         i.gamepad.icon
         span.ui.small.text クイズ
-      = link_to user_receipts_path(current_user), class: "item us-w-20 us-fz-12 us-inactive", style: "min-width: 0" do
+      = link_to user_receipts_path, class: "item us-w-20 us-fz-12", id: "receipt_nav", style: "min-width: 0" do
         i.shopping.bag.icon
         span.ui.small.text 注文履歴
-      = link_to user_coupons_path(current_user), class: "item us-w-20 us-fz-12 us-inactive", style: "min-width: 0" do
+      = link_to user_coupons_path, class: "item us-w-20 us-fz-12", id: "coupon_nav", style: "min-width: 0" do
         i.ticket.alternate.icon
         span.ui.small.text クーポン
-      = link_to user_path(current_user), class: "item us-w-20 us-fz-12 us-inactive", style: "min-width: 0" do
+      = link_to user_path, class: "item us-w-20 us-fz-12", id: "user_nav", style: "min-width: 0" do
         i.user.icon
         span.ui.small.text マイページ
 
