@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'sign_in', to: 'sessions#create', as: :session
   delete 'sign_out', to: 'sessions#destroy', as: :destroy_session
 
-  resources :users, except: :index do
+  resource :user do
     resources :coupons, only: [:index, :create], controller: :coupons
     resources :game_tickets, only: [:index, :show], controller: :game_tickets
     resources :receipts, only: [:index, :show, :create], controller: :receipts do

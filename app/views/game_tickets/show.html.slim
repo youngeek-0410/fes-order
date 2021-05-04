@@ -1,2 +1,2 @@
 h1 クイズ
-= link_to 'クーポンを受け取る', user_coupons_path(current_user, params: { coupon: { name: '割引クーポン1', discount: 10, user_id: current_user.id } }), method: :post
+= link_to 'クーポンを受け取る', user_coupons_path( params: { coupon: { name: '割引クーポン1', discount: 10, user_id: session[:user_id] } }), method: :post
