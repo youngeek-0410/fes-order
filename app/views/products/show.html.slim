@@ -5,6 +5,11 @@
   p.us-fz-14 = @product.description
 
   h3 購入
+  - unless @order.nil?
+    - if @order.errors.any? 
+      - @order.errors.full_messages.each do |message|
+        div class="ui red message" #{message}
+
   = form_with url: user_receipts_path, class: 'ui form', local: true do |f|
     .field
       = label_tag :count, '個数'

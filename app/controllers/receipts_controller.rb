@@ -13,10 +13,10 @@ class ReceiptsController < ApplicationController
 
   def create
     @product = Product.find(params[:product_id])
-    order = Order.new(product: @product, count: params[:count])
-    unless order.save
+    @order = Order.new(product: @product, count: params[:count])
+    unless @order.save
       @coupons = Coupon.where(user: current_user, is_used: false)
-      return render 'products/show' 
+      return render 'products/show', group: @order
     end
     price = order.product.price * order.count
     price_tax = order.product.price_tax * order.count
