@@ -1,8 +1,9 @@
 .ui.container
   = form_with url: root_path, method: :get, local: true do
-    .ui.icon.input.us-w-100.us-mt-20.us-mb-20
-      = text_field_tag :q, params[:q], placeholder: '名前で検索', class: 'prompt'
-      i.search.icon
+    .ui.search
+      .ui.icon.input.us-w-100.us-mt-20.us-mb-20
+        = text_field_tag :q, params[:q], placeholder: '名前で検索', class: 'prompt'
+        i.search.icon
 .ui.container
   - @shops.each do |shop|
     .ui.centered.horizontal.card style="box-shadow: 0 0 0 0"
