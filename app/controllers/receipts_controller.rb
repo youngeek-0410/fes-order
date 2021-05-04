@@ -11,14 +11,14 @@ class ReceiptsController < ApplicationController
   end
 
   def create
-    order = Order.create!(product_id: product_id, count: params[:count])
+    order = Order.create!(product_id: params[:product_id], count: params[:count])
     price = order.product.price * order.count
     price_tax = order.product.price_tax * order.count
 
     charge = payjp_charge(price_tax, current_user.customer_id)
 
     coupon = params[:coupon_id].blank? ? nil : params[:coupon_id].to_i
-    
+
     receipts_params = {
       user_id: current_user.id,
       order: order,
