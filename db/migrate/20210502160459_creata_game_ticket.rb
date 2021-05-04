@@ -5,6 +5,7 @@ class CreataGameTicket < ActiveRecord::Migration[6.0]
       t.boolean :is_used, null: false, default: false
       t.datetime :expired_at, null: false
       t.references :shop, null:false, foreign_key: true
+      t.references :product, foreign_key: true
       t.timestamps
     end
   end
