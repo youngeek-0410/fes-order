@@ -23,6 +23,6 @@ class Management::SessionsController < Management::ApplicationController
 
   def destroy
     sign_out
-    redirect_to new_session_path 
+    redirect_to management_new_session_path
   end
 end

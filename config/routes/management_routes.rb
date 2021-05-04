@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     resource :shop do
       resources :receipts, only: [:index, :show], controller: :receipts do
-        post 'availabled', on: :member
+        post 'to_availabled', on: :member
       end
     end
   end

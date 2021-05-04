@@ -18,7 +18,7 @@ class Management::ShopsController < Management::ApplicationController
   def create
     @shop = Shop.new(shop_params)
     if @shop.save
-      redirect_to root_path
+      redirect_to management_root_path
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class Management::ShopsController < Management::ApplicationController
 
   def update
     if @shop.update_attributes(shop_params)
-      redirect_to @shop
+      redirect_to management_shop_path
     else
       render 'edit'
     end
@@ -34,7 +34,7 @@ class Management::ShopsController < Management::ApplicationController
 
   def destroy
     @shop.destroy
-    redirect_to :root
+    redirect_to management_root_path
   end
 
   private
