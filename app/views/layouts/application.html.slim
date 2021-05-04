@@ -32,12 +32,8 @@ html
         span.ui.small.text マイページ
 
     .us-background
-      .ui.container
-        - if flash.present?
-          .ui.warning.message
-            i.close.icon
-            .header
-              - flash.each do |message_type, message|
-                = message
+      .ui.container.us-pt-10
+        - flash.each do |key, value|
+          = content_tag(:div, value, class: "#{key} ui message")
       == yield
       .us-h-100-px
