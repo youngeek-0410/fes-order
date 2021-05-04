@@ -14,18 +14,16 @@
  *= require_self
  */
 
- a {
-  color: #000000;
-  div:hover {
-    color: #000000;
-  }
-}
-
-a:hover {
+a:link, a:visited, a:hover, a:active {
   color: #000000;
 }
 
-a:active {
+a {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  cursor:pointer;
+}
+
+.grid.ui {
   color: #000000;
 }
 
