@@ -9,7 +9,12 @@ class Receipt < ApplicationRecord
   belongs_to :coupon, optional: true
 
   def to_used
-    self.to_used = true
+    self.is_used = true
+    self.save!
+  end
+
+  def to_availabled
+    self.is_availabled = true
     self.save!
   end
 end
