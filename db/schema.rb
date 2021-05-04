@@ -42,16 +42,20 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
     t.integer "discount", null: false
     t.boolean "is_used", default: false, null: false
     t.datetime "expired_at", null: false
+    t.bigint "shop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_coupons_on_shop_id"
     t.index ["user_id"], name: "index_coupons_on_user_id"
   end
 
   create_table "game_tickets", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.boolean "is_used", default: false, null: false
+    t.bigint "shop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_game_tickets_on_shop_id"
     t.index ["user_id"], name: "index_game_tickets_on_user_id"
   end
 
@@ -133,7 +137,9 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "coupons", "shops"
   add_foreign_key "coupons", "users"
+  add_foreign_key "game_tickets", "shops"
   add_foreign_key "game_tickets", "users"
   add_foreign_key "orders", "products"
   add_foreign_key "products", "shops"
