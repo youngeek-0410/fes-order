@@ -16,6 +16,7 @@ class ReceiptsController < ApplicationController
     order = Order.new(product: @product, count: params[:count])
     unless order.save
       @coupons = Coupon.where(user: current_user, is_used: false)
+      flash[:error] = '購入に失敗しました。'
       return render 'products/show' 
     end
     price = order.product.price * order.count
@@ -39,6 +40,7 @@ class ReceiptsController < ApplicationController
     coupon&.to_used
     receipt = Receipt.create!(receipts_params)
     GameTicket.create!(user: current_user, expired_at: Time.current.end_of_day, shop_id: receipt.shop_id, product_id: receipt.product_id)
+    flash[:info] = "#{receipt.product.name}を購入しました。"
     redirect_to user_receipts_path
   end
 
@@ -46,10 +48,10 @@ class ReceiptsController < ApplicationController
     receipt = Receipt.where(user: current_user).find(params[:id])
     if receipt.is_availabled 
       receipt.to_used
-      flash.now[:info] = "#{receipt.product.name}を受け取りました。"
+      flash[:info] = "#{receipt.product.name}を受け取りました。"
       redirect_to user_receipts_path
     else
-      flash.now[:info] = "まだ受け取れません。"
+      flash[:error] = "まだ受け取れません。"
       redirect_to user_receipts_path
     end
   end

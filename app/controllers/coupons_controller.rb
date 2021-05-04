@@ -14,6 +14,7 @@ class CouponsController < ApplicationController
     coupon = Coupon.new(name: name, discount: discount, user: current_user, expired_at: Time.current.end_of_day, shop: shop)
     coupon.save!
     GameTicket.where(user: current_user).first.destroy!
+    flash[:info] = "#{coupon.name}を獲得しました"
     render json: { message: 'created' }
   end
 end
