@@ -10,12 +10,6 @@ export class QuizService {
   allQuizes: Quiz[] = [];
   quizIndex = 0;
 
-  private parms = {
-    name: "割引券",
-    discount: 10,
-    shop_id: 1
-  };
-
   constructor(private httpService: HttpClientService) { }
 
   getQuizes(): Observable<Quiz[]> {
@@ -35,10 +29,5 @@ export class QuizService {
 
   getNextQuiz() {
     return this.allQuizes[this.quizIndex++];
-  }
-
-  endQuiz(score: number) {
-    this.parms.discount = score*10;
-    this.httpService.post(this.parms);
   }
 }
