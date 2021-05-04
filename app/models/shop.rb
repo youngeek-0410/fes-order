@@ -12,6 +12,6 @@ class Shop < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
   validates :name, presence: true
-  validates :discription, presence: true
+  validates :description, presence: true
 
 end
