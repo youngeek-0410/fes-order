@@ -6,8 +6,8 @@
           = image_tag coupon.shop.image, class: 'us-img-product'
         .ten.wide.column
           = coupon.name
-  - if @coupons.count > 1
+  - if @coupons.empty?
+    .us-not-avalilable 現在、使用可能なクーポンはありません。
+  - else
     .ui.center.aligned.grid.pagination style="margin-top: 20px"
       == pagy_semantic_nav(@pagy)
-  - else
-    .us-not-avalilable 現在、使用可能なクーポンはありません。
