@@ -14,11 +14,17 @@
  *= require_self
  */
 
+a:link, a:visited, a:hover, a:active {
+  color: #000000;
+}
+
 a {
-  color: inherit;
-  div:active {
-    color: #000000;
-  }
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  cursor:pointer;
+}
+
+.grid.ui {
+  color: #000000;
 }
 
 p, h2 {
