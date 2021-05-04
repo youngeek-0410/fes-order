@@ -11,8 +11,9 @@
           .us-fz-18 = receipt.product.name
           .us-fz-14.us-mt-5 = "￥#{receipt.product.price_tax}  #{receipt.shop.name}"
           .ui.divider
-  - if @receipts.count > 1
+  - if @receipts.empty?
+    .us-not-avalilable 購入商品はありません。
+  - else
     .ui.center.aligned.grid.pagination style="margin-top: 20px"
       == pagy_semantic_nav(@pagy)
-  - else
-    .us-not-avalilable 購入商品はありません。
+

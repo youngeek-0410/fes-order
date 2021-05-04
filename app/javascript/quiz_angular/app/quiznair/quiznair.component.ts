@@ -6,8 +6,13 @@ import { QuizService } from '../quiz.service';
   selector: 'app-quiznair',
   template: `
     <div *ngIf="isOnLastQuestion">
-      <p> {{quizNum}}問中{{lastScore}}問正解です！ </p>
-      <a (click)="createCoupon()"> クーポンを受け取る </a>
+      <div class="us-center" style="paddin-top: 250px">
+        <i class="ticket alternate icon massive blue"></i>
+        <p class="us-mb-20">{{quizNum}}問中{{lastScore}}問正解です！</p>
+        <div>
+          <a (click)="createCoupon()" class="ui button blue" style="font-weight: 100; font-size: 20px"> クーポンを受け取る </a>
+        </div>
+      </div>
     </div>
     <div *ngIf="!isOnLastQuestion">
       <app-question [nextQuestion]="nextQuiz"></app-question>
