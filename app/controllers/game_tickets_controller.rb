@@ -3,7 +3,7 @@
 # ==============================================================================
 class GameTicketsController < ApplicationController
   def index
-    @pagy, @game_tickets = pagy GameTicket.where(user: current_user, is_used: false)
+    @game_tickets = GameTicket.where(user: current_user, is_used: false)
   end
 
   def show

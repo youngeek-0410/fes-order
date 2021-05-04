@@ -34,4 +34,10 @@ export class QuizService {
   getShopId() {
     return this.httpService.getShopId();
   }
+
+  endQuiz(params) {
+    return this.httpService.post(params).subscribe(resp => {
+      document.location.href = "/user/coupons";
+    });
+  }
 }
