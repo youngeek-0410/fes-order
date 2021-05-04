@@ -44,8 +44,13 @@ class ReceiptsController < ApplicationController
 
   def to_used
     receipt = Receipt.where(user: current_user).find(params[:id])
-    receipt.to_used
-    flash.now[:info] = "#{receipt.product.name}を受け取りました。"
-    redirect_to user_receipts_path
+    if receipt.is_availabled 
+      receipt.to_used
+      flash.now[:info] = "#{receipt.product.name}を受け取りました。"
+      redirect_to user_receipts_path
+    else
+      flash.now[:info] = "まだ受け取れません。"
+      redirect_to user_receipts_path
+    end
   end
 end

@@ -29,4 +29,4 @@
     = link_to 'ログアウト', destroy_session_path, method: :delete, class: 'ui button red', style: 'font-weight: 100'
 
 .us-center.us-mt-20
-  = link_to '退会はこちら', user_path, method: :delete
+  = link_to '退会はこちら', user_path, method: :delete, data: { confirm: "アカウントをもとに戻すことはできません。\n本当に削除してよろしいですか？" }
