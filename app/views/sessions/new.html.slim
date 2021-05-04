@@ -1,6 +1,15 @@
 / ==============================================================================
 / app - views - sessions - new
 / ==============================================================================
+- if @error
+  ul.ui.red.message
+    - unless @mail.blank? && @pass
+      li パスワードもしくはメールアドレスが間違っています。
+    - if @mail.blank?
+      li メールアドレスを入力してください。
+    - if @pass
+      li パスワードを入力してください。
+
 .ui.container.us-pt-100
   = form_with url: session_path, class: 'form ui form', method: :post, local: true do |f|
     .field
