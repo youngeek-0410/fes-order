@@ -5,6 +5,9 @@
         = text_field_tag :q, params[:q], placeholder: '店名・商品名で検索', class: 'prompt'
         i.search.icon
 .ui.container.us-p-20
+  .ui.secondary.menu
+    = link_to '未受け取り', user_receipts_path, class: "item #{@current == 'not_used' ? 'active' : ''}"
+    = link_to '受け取り済み', user_receipts_path(current: 'used'), class: "item #{@current == 'used' ? 'active' : ''}"
   - @receipts.each do |receipt|
     = link_to user_receipt_path(receipt) do
       .grid.ui.us-white-background style="margin-bottom: 5px; margin-top: 5px"
