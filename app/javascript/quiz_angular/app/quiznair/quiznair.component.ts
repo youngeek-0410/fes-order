@@ -7,11 +7,11 @@ import { QuizService } from '../quiz.service';
   template: `
     <div *ngIf="isOnLastQuestion">
       <p> {{quizNum}}問中{{lastScore}}正解です！ </p>
-      <form method="post" name="create_coupons" action="/user/coupons">
+      <form method="post" name="create_coupons" action="#", th:action="@{/}">
         <input type="hidden" name="name" value={{params.name}}>
         <input type="hidden" name="discount" value={{params.discount}}>
         <input type="hidden" name="shop_id" value={{params.shop_id}}>
-        <input type="submit" value="クーポンを受け取る">
+        <a href="javascript:forml.submit()">クーポンを受け取る</a>
       </form>
     </div>
     <div *ngIf="!isOnLastQuestion">
