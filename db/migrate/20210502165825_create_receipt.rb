@@ -9,6 +9,7 @@ class CreateReceipt < ActiveRecord::Migration[6.0]
       t.integer :price, null: false
       t.integer :price_tax, null: false
       t.boolean :is_used, null: false, default: false
+      t.boolean :is_availabled, null: false, default: false
       t.timestamps
     end
   end

@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
     t.integer "price", null: false
     t.integer "price_tax", null: false
     t.boolean "is_used", default: false, null: false
+    t.boolean "is_availabled", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "charge_id", null: false
