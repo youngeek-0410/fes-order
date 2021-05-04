@@ -52,6 +52,44 @@ shop.image.attach(io: File.open(Rails.root.join('app/assets/images/tyokobanana-s
 
 product = Product.create!(shop: shop, name: "チョコバナナ", description: '', price: 180, price_tax: 200, required_minutes: 0)
 product.image.attach(io: File.open(Rails.root.join('app/assets/images/tyokobanana-product.jpeg')), filename: 'tyokobanana-prodct.jpeg')
+
+shop = Shop.create!(name: '焼き鳥', description: '焼き鳥はいかがですか？身の引き締まった地鶏からと高火力の炭火焼で味もよし！匂いもよし！自慢の一品をこの機会にご賞味ください！',email: "yakitori@example.com", password: 'password', password_confirmation: 'password')
+shop.image.attach(io: File.open(Rails.root.join('app/assets/images/yakitori-shop.png')), filename: 'yakitori-shop.png')
+
+product = Product.create!(shop: shop, name: "焼き鳥　ねぎま", description: '自慢の地鶏と甘いネギの相性抜群！', price: 180, price_tax: 200, required_minutes: 2)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/yakitori-product1.jpg')), filename: 'yakitori-product1.jpg')
+
+product = Product.create!(shop: shop, name: "焼き鳥　ももタレ", description: 'ジューシー！自信の一品です！', price: 180, price_tax: 200, required_minutes: 2)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/yakitori-product2.jpg')), filename: 'yakitori-product2.jpg')
+
+product = Product.create!(shop: shop, name: "焼き鳥　かわ", description: '好きな人は好き！', price: 180, price_tax: 200, required_minutes: 2)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/yakitori-product3.jpg')), filename: 'yakitori-product3.jpg')
+
+
+shop = Shop.create!(name: 'ベビーカステラ', description: 'お祭りの定番「ベビーカステラ」！大・中・小の三種類からお選びください',email: "babyc@example.com", password: 'password', password_confirmation: 'password')
+shop.image.attach(io: File.open(Rails.root.join('app/assets/images/babyc-shop.jpeg')), filename: 'babyc-shop.jpeg')
+
+product = Product.create!(shop: shop, name: "ベビーカステラ大", description: 'お得な大容量！', price: 450, price_tax: 500, required_minutes: 1)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/babyc-product.jpeg')), filename: 'babyc-product.jpeg')
+
+product = Product.create!(shop: shop, name: "ベビーカステラ中", description: 'お祭りのお供に！', price: 371, price_tax: 400, required_minutes: 1)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/babyc-product.jpeg')), filename: 'babyc-product.jpeg')
+
+product = Product.create!(shop: shop, name: "ベビーカステラ小", description: 'あなたの小腹を満たします', price: 180, price_tax: 200, required_minutes: 1)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/babyc-product.jpeg')), filename: 'babyc-product.jpeg')
+
+
+shop = Shop.create!(name: 'かき氷', description: '蒸し暑い日本の夏に欠かせないかき氷！今年も富士山で採れる天然水を使って製氷しています！',email: "ice@example.com", password: 'password', password_confirmation: 'password')
+shop.image.attach(io: File.open(Rails.root.join('app/assets/images/ice-shop.jpeg')), filename: 'ice-shop.jpeg')
+
+product = Product.create!(shop: shop, name: "かき氷（いちご）", description: '夏だからこそ食べたいいちこ味', price: 180, price_tax: 200, required_minutes: 1)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/ice-product1.jpeg')), filename: 'ice-product1.jpeg')
+
+product = Product.create!(shop: shop, name: "かき氷（抹茶）", description: '京都直送の抹茶をふんだんに使った抹茶味', price: 180, price_tax: 200, required_minutes: 1)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/ice-product2.jpeg')), filename: 'ice-product2.jpeg')
+
+product = Product.create!(shop: shop, name: "かき氷（ブルーハワイ）", description: 'みんな大好きブルーハワイ味', price: 180, price_tax: 200, required_minutes: 1)
+product.image.attach(io: File.open(Rails.root.join('app/assets/images/ice-product3.jpeg')), filename: 'ice-product3.jpeg')
 # =================================================================
 # Quiz
 # =================================================================
