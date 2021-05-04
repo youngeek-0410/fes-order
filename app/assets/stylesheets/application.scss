@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+
+a {
+  color: inherit;
+  div:active {
+    color: #000000;
+  }
+}
+
+.us-w-100 {
+  width: 100%;
+}
+
+.us-w-20 {
+  width: 20%;
+}
+
+.us-header {
+  z-index: 10000;
+  position: fixed;
+  bottom: 0;
+}
+
+.us-fz-12 {
+  font-size: 12px;
+}
+
+.us-active {
+  i, span {
+    color: #2185d0;
+  }
+}
+
+.us-inactive {
+  i, span {
+    color: #767676;
+  }
+}
