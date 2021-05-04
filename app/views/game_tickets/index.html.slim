@@ -5,6 +5,8 @@
       br
       | 商品を買ってチケットをためよう！
   - else
-    .us-center style="padding-top: 250px"
+    .us-center style="padding-top: 180px"
+      .us-mb-20
+        i.question.circle.outline.icon.orange style="font-size: 10em; opacity: 0.8"
       = link_to 'クイズを始める', user_game_ticket_path(@game_tickets.first), class: 'ui button orange', style: 'font-size: 24px'
       .us-mt-5 = "#{@game_tickets.count}回プレイできます"
