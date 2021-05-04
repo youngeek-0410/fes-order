@@ -1,2 +1,8 @@
-- @coupons.each do |coupon|
-  = coupon.name
+.ui.container.us-p-20
+  - @coupons.each do |coupon|
+    .us-card
+      .grid.ui
+        .three.wide.column
+          = image_tag coupon.shop.image, class: 'us-img-product'
+        .ten.wide.column
+          = "#{coupon.shop.name} #{coupon.discount}円引き#{coupon.name}"
