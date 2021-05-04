@@ -6,4 +6,4 @@
   p.us-fz-14 = @receipt.shop.name
 
   = form_with url: to_used_user_receipt_path(@receipt), class: 'ui form', local: true do |f|
-    = f.submit '受け取り', data: { confirm: "受け取りを取り消すことはできません。\nよろしいですか？"} , class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 50px;'
+    = f.submit '受け取り', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 50px;'
