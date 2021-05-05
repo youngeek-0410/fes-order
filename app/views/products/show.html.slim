@@ -3,6 +3,7 @@
 .ui.container
   h2 = @product.name
   p.us-fz-14 = @product.description
+  .ui.message.info.us-mt-5.us-fz-14 = "平均待ち時間 #{@product.required_minutes}分"
 
   h3 購入
   = form_with url: user_receipts_path, class: 'ui form', local: true do |f|

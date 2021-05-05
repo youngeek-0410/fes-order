@@ -4,13 +4,14 @@
     = link_to '受け取り済み', user_receipts_path(current: 'used'), class: "item #{@current == 'used' ? 'active' : ''}"
   - @receipts.each do |receipt|
     = link_to user_receipt_path(receipt) do
-      .grid.ui.us-white-background style="margin-bottom: 5px; margin-top: 5px"
+      .grid.ui.us-white-background style="margin-bottom: 5px; margin-top: 5px; padding-bottom: 20px"
         .four.wide.column
           = image_tag receipt.product.image, class: 'us-img-receipt'
         .ten.wide.column
           .us-fz-18 = receipt.product.name
           .us-fz-14.us-mt-5 = "￥#{receipt.product.price_tax}  #{receipt.shop.name}"
-          .ui.divider
+          .ui.divider.us-relative
+          .us-created-at = receipt.created_at.strftime("%H時%M分 注文済み")
           - if receipt.is_availabled && @current == 'not_used'
             .ui.blue.message 受け渡し可能
   - if @receipts.empty?

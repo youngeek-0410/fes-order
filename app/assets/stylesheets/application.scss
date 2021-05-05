@@ -151,7 +151,7 @@ h3 {
 }
 
 .us-img-product {
-  width: 50px;
+  width: 70px;
   object-fit: cover;
 }
 
@@ -204,4 +204,20 @@ h3 {
   i, span {
     color: #767676;
   }
+}
+
+.us-new-icon {
+  position: absolute;
+  top: -4px;
+  right: -5px;
+}
+
+.us-relative {
+  position: relative;
+}
+
+.us-created-at {
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
 }

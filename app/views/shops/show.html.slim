@@ -8,9 +8,10 @@
   - @shop.products.each do |product|
     = link_to shop_product_path(@shop, product) do
       .grid.ui
-        .three.wide.column
+        .four.wide.column
           = image_tag product.image, class: 'us-img-product'
         .ten.wide.column
           .us-mt-5.us-fz-18 = product.name
           .us-mt-5.us-fz-14 = slice20(product.description)
+          .ui.message.info.us-mt-5.us-fz-14 = "平均待ち時間 #{product.required_minutes}分"
     .ui.divider
