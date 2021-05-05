@@ -3,6 +3,7 @@
 .ui.container
   h2 = @product.name
   p.us-fz-14 = @product.description
+  .ui.message.info.us-mt-5.us-fz-14 = "平均待ち時間 #{@product.required_minutes}分"
 
   h3 購入
   = form_with url: user_receipts_path, class: 'ui form', local: true do |f|
@@ -16,5 +17,5 @@
     = hidden_field_tag :user_id, current_user.id
     = hidden_field_tag :product_id, @product.id
     - if current_user.card.nil?
-      = link_to 'カード情報を登録してください', edit_user_path
+      = link_to 'カード情報を登録してください(こちら)', edit_user_path
     = f.submit '購入', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;', disabled: current_user.card.nil?

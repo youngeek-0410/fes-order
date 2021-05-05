@@ -1,9 +1,11 @@
 .image
   = image_tag @receipt.product.image, class: 'us-img-shop'
 .ui.container
-  h2 = @receipt.product.name
-  p.us-fz-14 = "￥#{@receipt.price_tax}"
-  p.us-fz-14 = @receipt.shop.name
+  .us-relative
+    h2 = @receipt.product.name
+    p.us-fz-14 = "￥#{@receipt.price_tax}"
+    p.us-fz-14.us-mb-40 = @receipt.shop.name
+    .us-created-at style="bottom: -20px" = @receipt.created_at.strftime("%H時%M分 注文済み")
 
   - if @receipt.is_availabled && !@receipt.is_used
     .ui.blue.message.us-w-100 受け渡し可能
