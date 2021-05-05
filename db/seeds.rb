@@ -93,4 +93,13 @@ product.image.attach(io: File.open(Rails.root.join('app/assets/images/ice-produc
 # =================================================================
 # Quiz
 # =================================================================
-#Quiz.create!(description: '正解はどれでしょう？', content1: "#{i}!}", content2: "#{i + 1}!", content3: "#{i + 1}!", answer: N % 3 + 1)
+Quiz.create!(description: '今回のお祭りの名前は何でしょう？', content1: "大開発祭り", content2: "大海賊祭り", content3: "大龍珠祭り", answer: 1)
+Quiz.create!(description: '今回の会場はどこでしょう？', content1: "一門公園", content2: "二門公園", content3: "三門公園", answer: 2)
+Quiz.create!(description: '今回のお祭りの前夜祭にて企画された催しは次のうちどれでしょう？', content1: "ワードウルフ", content2: "雪山人狼", content3: "Amoung Us", answer: 3)
+Quiz.create!(description: '今回のお祭りのゲストは誰でしょう？', content1: "ワタリ119", content2: "ノボせもん なべ", content3: "ゴリけん", answer: 1)
+Quiz.create!(description: '今回のお祭りではいくつぐらいの屋台が出店しているでしょう？', content1: "20", content2: "50", content3: "100", answer: 2)
+Quiz.create!(description: '前回のお祭りではどのぐらいの人数の人が集まったでしょう？', content1: "1000", content2: "2500", content3: "5000", answer: 3)
+Quiz.create!(description: '今回のお祭りはいつから続いているでしょう？', content1: "128年前", content2: "64年前", content3: "16年前", answer: 1)
+Quiz.create!(description: '今回のお祭りで行われるモンスターエナジー大飲み大会の優勝賞品はなんでしょう？', content1: "PlayStation 5", content2: "Oculus Quest 2", content3: "ドリームキャスト", answer: 2)
+Quiz.create!(description: '今回のお祭りを主催している商店街にはいくつお店があるでしょう？', content1: "30", content2: "50", content3: "80", answer: 3)
+Quiz.create!(description: '今回のお祭りを主催している商店街のマスコットキャラクターと言えばなんでしょう？', content1: "ニセエもん", content2: "サカナさん", content3: "ワンパクマン", answer: 3)
