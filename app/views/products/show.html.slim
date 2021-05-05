@@ -17,5 +17,5 @@
     = hidden_field_tag :user_id, current_user.id
     = hidden_field_tag :product_id, @product.id
     - if current_user.card.nil?
-      = link_to 'カード情報を登録してください(こちら)', edit_user_path
+      = link_to 'カード情報を登録してください(こちら)', edit_user_path, style: "color: #ff0000"
     = f.submit '購入', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;', disabled: current_user.card.nil?
