@@ -52,7 +52,7 @@ product = Product.create!(shop: shop, name: "チョコバナナ", description: '
 product.image.attach(io: File.open(Rails.root.join('app/assets/images/tyokobanana-product.jpeg')), filename: 'tyokobanana-prodct.jpeg')
 
 
-shop = Shop.create!(name: '焼き鳥', description: '焼き鳥はいかがですか？身の引き締まった地鶏からと高火力の炭火焼で味もよし！匂いもよし！自慢の一品をこの機会にご賞味ください！',email: "yakitori@example.com", password: 'password', password_confirmation: 'password')
+shop = Shop.create!(name: '屋台 焼き鳥', description: '焼き鳥はいかがですか？身の引き締まった地鶏からと高火力の炭火焼で味もよし！匂いもよし！自慢の一品をこの機会にご賞味ください！',email: "yakitori@example.com", password: 'password', password_confirmation: 'password')
 shop.image.attach(io: File.open(Rails.root.join('app/assets/images/yakitori-shop.png')), filename: 'yakitori-shop.png')
 
 product = Product.create!(shop: shop, name: "焼き鳥　ねぎま", description: '自慢の地鶏と甘いネギの相性抜群！', price: 180, price_tax: 200, required_minutes: 2)
@@ -65,7 +65,7 @@ product = Product.create!(shop: shop, name: "焼き鳥　かわ", description: '
 product.image.attach(io: File.open(Rails.root.join('app/assets/images/yakitori-product3.jpg')), filename: 'yakitori-product3.jpg')
 
 
-shop = Shop.create!(name: 'ベビーカステラ', description: 'お祭りの定番「ベビーカステラ」！大・中・小の三種類からお選びください',email: "babyc@example.com", password: 'password', password_confirmation: 'password')
+shop = Shop.create!(name: '屋台 ベビーカステラ', description: 'お祭りの定番「ベビーカステラ」！大・中・小の三種類からお選びください',email: "babyc@example.com", password: 'password', password_confirmation: 'password')
 shop.image.attach(io: File.open(Rails.root.join('app/assets/images/babyc-shop.jpeg')), filename: 'babyc-shop.jpeg')
 
 product = Product.create!(shop: shop, name: "ベビーカステラ大", description: 'お得な大容量！', price: 450, price_tax: 500, required_minutes: 1)
@@ -78,7 +78,7 @@ product = Product.create!(shop: shop, name: "ベビーカステラ小", descript
 product.image.attach(io: File.open(Rails.root.join('app/assets/images/babyc-product.jpeg')), filename: 'babyc-product.jpeg')
 
 
-shop = Shop.create!(name: 'かき氷', description: '蒸し暑い日本の夏に欠かせないかき氷！今年も富士山で採れる天然水を使って製氷しています！',email: "ice@example.com", password: 'password', password_confirmation: 'password')
+shop = Shop.create!(name: '屋台 かき氷', description: '蒸し暑い日本の夏に欠かせないかき氷！今年も富士山で採れる天然水を使って製氷しています！',email: "ice@example.com", password: 'password', password_confirmation: 'password')
 shop.image.attach(io: File.open(Rails.root.join('app/assets/images/ice-shop.jpeg')), filename: 'ice-shop.jpeg')
 
 product = Product.create!(shop: shop, name: "かき氷（いちご）", description: '夏だからこそ食べたいいちこ味', price: 180, price_tax: 200, required_minutes: 1)

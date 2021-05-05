@@ -1,11 +1,13 @@
 .ui.container.us-p-20
   - @coupons.each do |coupon|
     .us-card
-      .grid.ui
-        .three.wide.column
-          = image_tag coupon.shop.image, class: 'us-img-product'
-        .ten.wide.column
-          = coupon.name
+      = link_to shop_path(coupon.shop)
+        .grid.ui
+            .four.wide.column
+              = image_tag coupon.shop.image, class: 'us-img-product'
+            .ten.wide.column
+              .us-fz-18 = coupon.name
+              .us-fz-14.us-mt-5 = coupon.shop.name
   - if @coupons.empty?
     .us-not-avalilable 現在、使用可能なクーポンはありません。
   - else
