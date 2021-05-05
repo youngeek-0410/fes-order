@@ -19,12 +19,13 @@ class ReceiptsController < ApplicationController
       flash[:error] = '購入に失敗しました。'
       return render 'products/show' 
     end
+    coupon = params[:coupon_id].blank? ? nil : Coupon.find(params[:coupon_id].to_i)
+    
     price = order.product.price * order.count
     price_tax = order.product.price_tax * order.count
+    price_tax -= coupon.discount unless coupon.nil?
 
     charge = payjp_charge(price_tax, current_user.customer_id)
-
-    coupon = params[:coupon_id].blank? ? nil : Coupon.find(params[:coupon_id].to_i)
 
     receipts_params = {
       user_id: current_user.id,

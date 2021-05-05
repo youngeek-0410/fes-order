@@ -9,7 +9,7 @@
           = image_tag receipt.product.image, class: 'us-img-receipt'
         .ten.wide.column
           .us-fz-18 = receipt.product.name
-          .us-fz-14.us-mt-5 = "￥#{receipt.product.price_tax}  #{receipt.shop.name}"
+          .us-fz-14.us-mt-5 = "￥#{receipt.price_tax}  #{receipt.shop.name}"
           .ui.divider.us-relative
           .us-created-at = receipt.created_at.strftime("%H時%M分 注文済み")
           - if receipt.is_availabled && @current == 'not_used'
