@@ -22,12 +22,12 @@ html
         i.gamepad.icon
         span.ui.small.text クイズ
         - unless current_user.game_tickets.empty?
-        i.exclamation.circle.icon.us-new-icon style="font-size: 20px; color: red"
+          i.exclamation.circle.icon.us-new-icon style="font-size: 20px; color: red"
       = link_to user_receipts_path, class: "item us-w-20 us-fz-12 us-relative", id: "receipt_nav", style: "min-width: 0" do
         i.shopping.bag.icon
         span.ui.small.text 注文履歴
         - unless current_user.receipts.where(is_used: false, is_availabled: true).empty?
-            i.exclamation.circle.icon.us-new-icon style="font-size: 20px; color: red"
+          i.exclamation.circle.icon.us-new-icon style="font-size: 20px; color: red"
       = link_to user_coupons_path, class: "item us-w-20 us-fz-12 us-relative", id: "coupon_nav", style: "min-width: 0" do
         i.ticket.alternate.icon
         span.ui.small.text クーポン
