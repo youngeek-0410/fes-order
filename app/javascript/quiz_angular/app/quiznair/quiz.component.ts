@@ -6,7 +6,7 @@ import { QuestionnairComponent } from './quiznair.component';
   selector: 'app-question',
   template: `
     <div class="ui icon message" style="margin-bottom: 40px">
-      <i class="inbox icon"></i>
+      <i class="question icon"></i>
       <div class="content">{{nextQuestion?.description}}</div>
     </div>
     <div>
