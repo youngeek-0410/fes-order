@@ -38,20 +38,19 @@ product.image.attach(io: File.open(Rails.root.join('app/assets/images/nikumakion
 shop = Shop.create!(name: '屋台 街の風物詩 たこ焼き', description: '大阪出身の店主が「本場のたこ焼き」を提供！大きいタコに濃ゆ～いソースで旨いこと間違いなし！是非にご賞味あれ！',email: "takoyaki@example.com", password: 'password', password_confirmation: 'password')
 shop.image.attach(io: File.open(Rails.root.join('app/assets/images/takoyaki-shop.png')), filename: 'takoyaki-shop.png')
 
-product = Product.create!(shop: shop, name: "たこ焼き ソース味", description: '定番のソース味！大人から子供までもが好きな味', price: 371, price_tax: 400, required_minutes: 3)
-product.image.attach(io: File.open(Rails.root.join('app/assets/images/takoyaki-product2.jpeg')), filename: 'takoyaki-prodct2.jpeg')
-
 product = Product.create!(shop: shop, name: "たこ焼き ソース味", description: '定番のソース味！大人から子供までもが好きな味', price: 371, price_tax: 400, required_minutes: 5)
 product.image.attach(io: File.open(Rails.root.join('app/assets/images/takoyaki-product2.jpeg')), filename: 'takoyaki-prodct2.jpeg')
 
 product = Product.create!(shop: shop, name: "たこ焼き ポン酢味", description: 'あっさり美味しいポン酢！女性や子供に人気です', price: 371, price_tax: 400, required_minutes: 5)
 product.image.attach(io: File.open(Rails.root.join('app/assets/images/takoyaki-product.jpeg')), filename: 'takoyaki-prodct.jpeg')
 
+
 shop = Shop.create!(name: '屋台 定番 チョコバナナ', description: 'バナナ全体にチョコレートが絡められ、粒上のチョコレートでデコレーションされています。お祭りで食べ歩きをするのであれば、うってつけのデザートです。',email: "tyokobanana@example.com", password: 'password', password_confirmation: 'password')
 shop.image.attach(io: File.open(Rails.root.join('app/assets/images/tyokobanana-shop.png')), filename: 'tyokobanana-shop.png')
 
 product = Product.create!(shop: shop, name: "チョコバナナ", description: '', price: 180, price_tax: 200, required_minutes: 0)
 product.image.attach(io: File.open(Rails.root.join('app/assets/images/tyokobanana-product.jpeg')), filename: 'tyokobanana-prodct.jpeg')
+
 
 shop = Shop.create!(name: '焼き鳥', description: '焼き鳥はいかがですか？身の引き締まった地鶏からと高火力の炭火焼で味もよし！匂いもよし！自慢の一品をこの機会にご賞味ください！',email: "yakitori@example.com", password: 'password', password_confirmation: 'password')
 shop.image.attach(io: File.open(Rails.root.join('app/assets/images/yakitori-shop.png')), filename: 'yakitori-shop.png')
@@ -90,6 +89,7 @@ product.image.attach(io: File.open(Rails.root.join('app/assets/images/ice-produc
 
 product = Product.create!(shop: shop, name: "かき氷（ブルーハワイ）", description: 'みんな大好きブルーハワイ味', price: 180, price_tax: 200, required_minutes: 1)
 product.image.attach(io: File.open(Rails.root.join('app/assets/images/ice-product3.jpeg')), filename: 'ice-product3.jpeg')
+
 # =================================================================
 # Quiz
 # =================================================================
