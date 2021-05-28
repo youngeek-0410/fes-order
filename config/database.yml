@@ -25,4 +25,4 @@ test:
 
 production:
   <<: *default
-  database: event_payment_app_production
+  database: fes_order 
