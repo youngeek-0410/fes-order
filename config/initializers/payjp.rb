@@ -1,1 +1,1 @@
-Payjp.api_key = ENV['PAYJP_PUBLIC_KEY']
+Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
