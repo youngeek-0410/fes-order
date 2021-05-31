@@ -2,6 +2,7 @@
   = image_tag @product.image, class: 'us-img-shop'
 .ui.container
   h2 = @product.name
+  h2 = "1個　#{@product.price_tax}円（税込み）"
   p.us-fz-14 = @product.description
   .ui.message.info.us-mt-5.us-fz-14 = "平均待ち時間 #{@product.required_minutes}分"
 
