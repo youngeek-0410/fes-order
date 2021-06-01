@@ -25,7 +25,7 @@ class Management::ShopsController < Management::ApplicationController
   end
 
   def update
-    if @shop.update_attributes(shop_params)
+    if @shop.update_attributes(shop_update_params)
       redirect_to management_shop_path
     else
       render 'edit'
@@ -41,6 +41,10 @@ class Management::ShopsController < Management::ApplicationController
 
   def shop_params
     params.require(:shop).permit(:email, :password, :password_confirmation)
+  end
+
+  def shop_update_params
+    params.require(:shop).permit(:email, :name)
   end
 
   def set_shop
