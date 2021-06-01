@@ -12,7 +12,6 @@
           = image_tag product.image, class: 'us-img-product'
         .ten.wide.column
           .us-mt-5.us-fz-18 = product.name
-          .us-mt-5.us-fz-18 = "#{product.price_tax}円（税込み）"
           .us-mt-5.us-fz-14 = slice20(product.description)
           .ui.message.info.us-mt-5.us-fz-14 = "平均待ち時間 #{product.required_minutes}分"
     .ui.divider

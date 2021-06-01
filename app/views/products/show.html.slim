@@ -2,7 +2,7 @@
   = image_tag @product.image, class: 'us-img-shop'
 .ui.container
   h2 = @product.name
-  h2 = "1個　#{@product.price_tax}円（税込み）"
+  h3 = "#{@product.price_tax}円（税込み）"
   p.us-fz-14 = @product.description
   .ui.message.info.us-mt-5.us-fz-14 = "平均待ち時間 #{@product.required_minutes}分"
 
@@ -19,4 +19,7 @@
     = hidden_field_tag :product_id, @product.id
     - if current_user.card.nil?
       = link_to 'カード情報を登録してください(こちら)', edit_user_path, style: "color: #ff0000"
+    div#hidden_price type="hidden" value= @product.price_tax
+    h4#total_price = "現在:#{@product.price_tax}円（税込み）"
+    = javascript_include_tag "product_show", "data-turbolinks-track" => "reload"
     = f.submit '購入', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;', disabled: current_user.card.nil?
