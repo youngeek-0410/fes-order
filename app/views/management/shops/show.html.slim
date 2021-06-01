@@ -12,14 +12,17 @@
   table.ui.very.basic.table
     tbody 
       tr
-        td Email 
+        td メールアドレス 
         td =current_shop.email
       tr 
-        td description 
+        td 店情報 
         td =current_shop.description
       tr 
-        td created at 
+        td 登録日
         td =current_shop.created_at
+      tr 
+        td 更新日
+        td =current_shop.updated_at
   .ui.divider
   = link_to '編集', edit_management_shop_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
 
