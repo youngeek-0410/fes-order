@@ -4,4 +4,22 @@
 
 .ui.container
   h1.us-pt-10 = current_shop.name
+  .image
+    = image_tag @shop.image
+.ui.divider
+.ui.container
+  .us-card
+  table.ui.very.basic.table
+    tbody 
+      tr
+        td Email 
+        td =current_shop.email
+      tr 
+        td description 
+        td =current_shop.description
+      tr 
+        td created at 
+        td =current_shop.created_at
   .ui.divider
+  = link_to '編集', edit_management_shop_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
+
