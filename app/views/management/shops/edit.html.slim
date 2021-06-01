@@ -13,5 +13,8 @@
     .field
       = f.label :email, 'メールアドレス'
       = f.text_field :email, placeholder: 'メールアドレス'
+    .field
+      = f.label :description, '店情報'
+      = f.text_field :description, placeholder: '店情報'
 
     = f.submit '更新', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'
