@@ -44,7 +44,7 @@ class Management::ShopsController < Management::ApplicationController
   end
 
   def shop_update_params
-    params.require(:shop).permit(:email, :name, :description)
+    params.require(:shop).permit(:email, :name, :description, :image)
   end
 
   def set_shop
