@@ -23,10 +23,8 @@
         th 更新日
         td = current_shop.updated_at
 
-.ui.container
   .image
     = image_tag @shop.image
 
-.ui.container
   .us-mt-15
-  = link_to '編集', edit_management_shop_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
+    = link_to '編集', edit_management_shop_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
