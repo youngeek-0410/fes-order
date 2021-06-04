@@ -6,7 +6,7 @@
     h2.ten.wide.column.us-lh-2-5.us-ml-10 = "#{current_shop.name} さん"
 
 .ui.container.us-mt-30
-  = form_with url: management_shop_path,model: @shop, class: 'ui form', id: 'shop_form', local: true do |f|
+  = form_with url: management_shop_path, model: @shop, class: 'ui form', id: 'shop_form', local: true do |f|
     .field
       = f.label :name, '店名'
       = f.text_field :name, placeholder: '店名'

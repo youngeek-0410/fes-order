@@ -4,25 +4,29 @@
 
 .ui.container
   h1.us-pt-10 = current_shop.name
-  .image
-    = image_tag @shop.image
+
 .ui.divider
+
 .ui.container
-  .us-card
   table.ui.very.basic.table
     tbody 
       tr
-        td メールアドレス 
-        td =current_shop.email
+        th メールアドレス 
+        td = current_shop.email
       tr 
-        td 店情報 
-        td =current_shop.description
+        th  店情報 
+        td = current_shop.description
       tr 
-        td 登録日
-        td =current_shop.created_at
+        th 登録日
+        td = current_shop.created_at
       tr 
-        td 更新日
-        td =current_shop.updated_at
-  .ui.divider
-  = link_to '編集', edit_management_shop_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
+        th 更新日
+        td = current_shop.updated_at
 
+.ui.container
+  .image
+    = image_tag @shop.image
+
+.ui.container
+  .us-mt-15
+  = link_to '編集', edit_management_shop_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
