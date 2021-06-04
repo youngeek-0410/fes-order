@@ -3,7 +3,16 @@ let price_tax = document.getElementById('hidden_price').getAttribute('value')
 
 $('#count').change(function () {
   let count = document.getElementById('count').value
-  let total_price = price_tax * count
+  let discount = document.getElementById('coupon_id').value
+  let total_price = price_tax * count - discount
+
+  message.innerText = "現在:￥ " + total_price + "（税込）"
+})
+
+$('#coupon_id').change(function () {
+  let count = document.getElementById('count').value
+  let discount = document.getElementById('coupon_id').value
+  let total_price = price_tax * count - discount
 
   message.innerText = "現在:￥ " + total_price + "（税込）"
 })

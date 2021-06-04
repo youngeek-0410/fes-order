@@ -13,7 +13,7 @@
       = number_field_tag :count, '1', in: 1..10
     .field
       = label_tag :coupon_id, 'クーポン'
-      = f.collection_select :coupon_id, @coupons, :id, :name, include_blank: '使用しない'
+      = f.collection_select :coupon_id, @coupons, :discount, :name, include_blank: '使用しない'
     = hidden_field_tag :shop_id, @product.shop_id
     = hidden_field_tag :user_id, current_user.id
     = hidden_field_tag :product_id, @product.id
