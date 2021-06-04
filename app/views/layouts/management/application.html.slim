@@ -24,5 +24,9 @@ html
     / main contents
     .pusher style="width: calc(100% - 260px);"
       .ui.container
-        == yield
+        / messages
+        - flash.each do |key, value|
+          .us-pt-10
+            = content_tag(:div, value, class: "#{key} ui message us-mt-10", style: "margin-bottom: 10px")
         
+        == yield
