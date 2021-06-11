@@ -1,0 +1,34 @@
+let message = document.getElementById('total_price')
+let price_tax = document.getElementById('hidden_price').getAttribute('value')
+
+$('#count').change(function () {
+  let count = document.getElementById('count').value
+
+  // discount
+  let coupons = document.getElementById('coupon_id')
+  let selectedidx = document.getElementById('coupon_id').selectedIndex
+  const discountpattern = /(\d+)円/
+  let coupon = coupons[selectedidx].text
+  const discountArray = coupon.match(discountpattern)
+  const discount = discountArray === null ? 0 : discountArray[1]
+
+  let total_price = price_tax * count - discount
+
+  message.innerText = "現在:￥ " + total_price + "（税込）"
+})
+
+$('#coupon_id').change(function () {
+  let count = document.getElementById('count').value
+
+  // discount
+  let coupons = document.getElementById('coupon_id')
+  let selectedidx = document.getElementById('coupon_id').selectedIndex
+  const discountpattern = /(\d+)円/
+  let coupon = coupons[selectedidx].text
+  const discountArray = coupon.match(discountpattern)
+  const discount = discountArray === null ? 0 : discountArray[1]
+
+  let total_price = price_tax * count - discount
+
+  message.innerText = "現在:￥ " + total_price + "（税込）"
+})
