@@ -20,5 +20,5 @@
       = f.email_field :email, placeholder: 'メールアドレス'
     .field
       label カード情報
-      script type="text/javascript" src="https://checkout.pay.jp/" class="payjp-button" data-key=ENV['PAYJP_PUBLIC_KEY'] data-submit-text="トークンを作成する" data-partial="true" data-token-name="payjp_token"
+      script type="text/javascript" src="https://checkout.pay.jp/" class="payjp-button" data-key=ENV['PAYJP_PUBLIC_KEY'] data-submit-text="登録" data-partial="true" data-token-name="payjp_token"
     = f.submit '更新', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'
