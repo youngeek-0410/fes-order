@@ -1,20 +1,20 @@
 require 'rails_helper'   
 
-RSpec.describe SessionsHelper do 
-  include SessionsHelper
+RSpec.describe Management::SessionsHelper do 
+  include Management::SessionsHelper
   context 'sign_in' do
     before do
-      @user = create(:user)    
-      session[:user_id] = @user.id
+      @shop = create(:shop)    
+      session[:shop_id] = @shop.id
     end
 
     it 'sign_in' do
-      sign_in(@user)
-      expect(session[:user_id]).to eq(@user.id)
+      sign_in(@shop)
+      expect(session[:shop_id]).to eq(@shop.id)
     end
 
-    it 'display sign_in user' do
-      expect(current_user.id).to eq(@user.id)
+    it 'display sign_in shop' do
+      expect(current_shop.id).to eq(@shop.id)
     end
 
     it 'authenticated!' do
@@ -27,8 +27,8 @@ RSpec.describe SessionsHelper do
   end
 
   context 'not sign_in' do
-    it 'do not display sign_in user' do
-      expect(current_user).to eq(nil)
+    it 'do not display sign_in shop' do
+      expect(current_shop).to eq(nil)
     end
 
     it 'not authenticated' do
