@@ -13,9 +13,7 @@ module SessionsHelper
   def authenticated?
     current_user.present? && session[:user_id].present?
   end
-  def kami
 
-  end
   def sign_out
     session[:user_id] = nil
   end
