@@ -13,211 +13,30 @@
  *= require_tree .
  *= require_self
  */
+@use "_uscomponent";
 
-a:link, a:visited, a:hover, a:active {
+a:link,
+a:visited,
+a:hover,
+a:active {
   color: #000000;
 }
 
 a {
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
-  cursor:pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
 }
 
 .grid.ui {
   color: #000000;
 }
 
-p, h2 {
+p,
+h2 {
   font-weight: 400;
   margin: 0;
 }
 
 h3 {
   font-weight: 400;
-}
-
-.us-w-100 {
-  width: 100%;
-}
-
-.us-w-60 {
-  width: 60%;
-}
-
-.us-w-20 {
-  width: 20%;
-}
-
-.us-h-100-px {
-  height: 100px;
-}
-.us-h-45-px {
-  height: 45px;
-}
-
-.us-h-45-px {
-  height: 45px;
-}
-
-.us-p-10 {
-  padding: 10px;
-}
-
-.us-p-20 {
-  padding-top: 20px;
-}
-
-.us-pt-10 {
-  padding-top: 10px;
-}
-
-.us-pt-100 {
-  padding-top: 100px;
-}
-
-.us-mt-5 {
-  margin-top: 5px;
-}
-
-.us-mt-30 {
-  margin-top: 30px;
-}
-
-
-.us-mt-15 {
-  margin-top: 15px;
-}
-
-.us-mt-20 {
-  margin-top: 20px;
-}
-
-.us-ml-10 {
-  margin-left: 10px;
-}
-
-.us-mb-40 {
-  margin-bottom: 40px;
-}
-
-.us-mb-20 {
-  margin-bottom: 20px;
-}
-
-.us-mb-10 {
-  margin-bottom: 10px;
-}
-
-.us-fz-12 {
-  font-size: 12px;
-}
-
-.us-fz-14 {
-  font-size: 14px;
-}
-
-.us-fz-18 {
-  font-size: 18px;
-}
-
-.us-fz-24 {
-  font-size: 24px;
-}
-
-.us-lh-2-5 {
-  line-height: 2.5;
-}
-
-.us-fw-100 {
-  font-weight: 100;
-}
-
-.us-center {
-  text-align: center;
-}
-
-.us-flex {
-  display: flex;
-}
-
-.us-field {
-  background: #ffffff;
-}
-
-.us-img-shop {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-
-.us-img-product {
-  width: 70px;
-  object-fit: cover;
-}
-
-.us-img-receipt {
-  width: 70px;
-  object-fit: cover;
-}
-
-.us-card {
-  background: #ffffff;
-  margin-top: 10px;
-  padding: 10px;
-}
-
-.us-background {
-  min-height: 100%;
-  background: #f5f5f5;
-}
-
-.us-white-background {
-  background: #ffffff;
-}
-
-.us-container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.us-not-avalilable {
-  color: #6b6b6b;
-  font-size: 16px;
-  text-align: center;
-  padding-top: 250px;
-}
-
-.us-header {
-  z-index: 10000;
-  position: fixed;
-  bottom: 0;
-}
-
-.us-active {
-  i, span {
-    color: #2185d0;
-  }
-}
-
-.us-inactive {
-  i, span {
-    color: #767676;
-  }
-}
-
-.us-new-icon {
-  position: absolute;
-  top: -4px;
-  right: -5px;
-}
-
-.us-relative {
-  position: relative;
-}
-
-.us-created-at {
-  position: absolute;
-  bottom: -10px;
-  right: 10px;
 }
