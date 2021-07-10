@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :shop do
-    sequence(:email) { |n|"TEST#{n}@example.com" }
-    sequence(:password) {"kimutakutest"}
-    sequence(:name) {"takoyaki"}
-    sequence(:description) {"oisiyo"}
+    email { "kimutaku@example.com" }
+    password {"kimutakutest"}
+    name {"takoyaki"}
+    description {"oisiyo"}
   end
 end
