@@ -1,0 +1,32 @@
+/ ==============================================================================
+/ app - views - management - products - show
+/ ==============================================================================
+.ui.container
+  h1.us-pt-10 = @product.name
+  .ui.divider
+
+.ui.container
+  table.ui.very.basic.table
+    tbody 
+      tr
+        th 説明
+        td = @product.description
+      tr 
+        th 値段
+        td = @product.price.to_s + '円'
+      tr 
+        th 平均待ち時間
+        td = @product.required_minutes.to_s + '分'
+      tr 
+        th 登録日
+        td = @product.created_at
+      tr
+        th 更新日
+        td = @product.updated_at
+
+  .image
+    = image_tag @product.image
+
+  .us-mt-15
+    = link_to '編集', edit_management_product_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
+    = link_to '削除', management_product_path, method: :delete, class: 'ui button red us-fw-400', style: 'font-weight: 100'
