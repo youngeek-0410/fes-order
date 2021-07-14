@@ -21,6 +21,6 @@
       = f.text_field :required_minutes, placeholder: '平均待ち時間'
     .field 
       = f.label :image, '写真'
-      = f.file_field :image
+      = f.file_field :image, accept: 'image/jpeg, image/png, image/jpg'
 
     = f.submit '追加', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'
