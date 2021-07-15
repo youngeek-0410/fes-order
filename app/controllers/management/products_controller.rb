@@ -26,30 +26,33 @@ class Management::ProductsController < Management::ApplicationController
       redirect_to management_products_path
     else
       flash[:error] = '商品情報の更新に失敗しました'
-      render 'new'
+      render :new
     end
   end
 
   def update
-    if @product.update(product_params) && @product.update(price_tax: params[:product][:price].to_i * 1.1)
+    if @product.update(product_params)
       flash[:success] = '商品情報を更新しました'
       redirect_to management_product_path
     else
       flash[:else] = '商品情報の更新に失敗しました'
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
     flash[:success] = '商品情報を削除しました'
-    @product.destroy
+    @product.destroy!
+    redirect_to management_products_path
+  rescue
+    flash[:error]
     redirect_to management_products_path
   end
 
   private
 
     def product_params
-      params.require(:product).permit(:name, :description, :price, :required_minutes, :image)
+      params.require(:product).permit(:name, :description, :price, :required_minutes, :image).merge(price_tax: params[:price].to_i * 1.1)
     end
 
     def set_product
