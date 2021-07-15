@@ -24,7 +24,7 @@
         td = current_shop.updated_at
 
   .image
-    = image_tag @shop.image
+    = image_tag @shop.image, class: 'us-w-500px'
 
   .us-mt-15
     = link_to '編集', edit_management_shop_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
