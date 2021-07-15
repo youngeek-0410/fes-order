@@ -26,8 +26,10 @@ class Management::ShopsController < Management::ApplicationController
 
   def update
     if @shop.update_attributes(shop_params)
+      flash[:success] = 'ショップ情報を更新しました。'
       redirect_to management_shop_path
     else
+      flash[:error] = 'ショップ情報の更新に失敗しました。'
       render 'edit'
     end
   end
@@ -40,7 +42,7 @@ class Management::ShopsController < Management::ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:email, :password, :password_confirmation)
+    params.require(:shop).permit(:email, :name, :description, :image, :password, :password_confirmation)
   end
 
   def set_shop
