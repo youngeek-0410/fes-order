@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true
-  validates :price, presence: true
-  validates :price_tax, presence: true
+  validates :price, presence: true, numericality: { only_integer: true }
+  validates :price_tax, presence: true, numericality: { only_integer: true }
 
 end

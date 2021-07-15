@@ -52,7 +52,7 @@ class Management::ProductsController < Management::ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:name, :description, :price, :required_minutes, :image).merge(price_tax: params[:price].to_i * 1.1)
+      params.require(:product).permit(:name, :description, :price, :required_minutes, :image).merge(price_tax: (params[:price].to_i * 1.1).to_i)
     end
 
     def set_product
