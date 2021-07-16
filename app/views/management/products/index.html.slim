@@ -21,6 +21,8 @@
         |
       th
         |
+      th
+        |
     tbody
       - if @products
         - @products.each do |product|
@@ -37,6 +39,8 @@
                 = product.required_minutes.to_s + '分'
             td
                 = link_to '詳細', management_product_path(product.id), method: :get, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
+            td
+                = link_to '編集', edit_management_product_path(product), method: :get, class: 'ui button blue us-fw-400', style: 'font-weight: 100'
             td
                 = link_to '削除', management_product_path(product.id), method: :delete, class: 'ui button red us-fw-400', style: 'font-weight: 100'
 .us-mt-15

@@ -20,7 +20,6 @@ class Management::ProductsController < Management::ApplicationController
 
   def create
     @product = current_shop.products.new(product_params)
-    @product.price_tax = params[:product][:price].to_i * 1.1
     if @product.save
       flash[:success] = '商品情報を登録しました'
       redirect_to management_products_path
@@ -44,9 +43,9 @@ class Management::ProductsController < Management::ApplicationController
     flash[:success] = '商品情報を削除しました'
     @product.destroy!
     redirect_to management_products_path
-  rescue
-    flash[:error]
-    redirect_to management_products_path
+    rescue
+      flash[:error] = '商品情報の削除に失敗しました'
+      redirect_to management_products_path
   end
 
   private
