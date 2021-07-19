@@ -5,6 +5,9 @@
   h1.us-pt-10 商品一覧
   .ui.divider
 
+  .us-mt-15
+      = link_to '追加', new_management_product_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
+
   table.ui.celled.table
     thead
       th
@@ -43,5 +46,3 @@
                 = link_to '編集', edit_management_product_path(product), method: :get, class: 'ui button blue us-fw-400', style: 'font-weight: 100'
             td
                 = link_to '削除', management_product_path(product.id), method: :delete, class: 'ui button red us-fw-400', style: 'font-weight: 100'
-.us-mt-15
-    = link_to '追加', new_management_product_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'

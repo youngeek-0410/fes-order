@@ -14,6 +14,8 @@ html
   body
     / side bar
     .ui.inverted.left.inline.vertical.visible.sidebar.menu.icon.demo
+      = link_to 'javascript:history.back()', class: 'item' do
+        i.angle.left.icon.huge
       = link_to management_root_path, class: 'item' do
         i.home.icon.huge
       = link_to management_products_path, class: 'item' do
