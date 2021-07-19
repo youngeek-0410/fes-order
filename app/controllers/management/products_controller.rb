@@ -34,7 +34,7 @@ class Management::ProductsController < Management::ApplicationController
       flash[:success] = '商品情報を更新しました'
       redirect_to management_product_path
     else
-      flash[:else] = '商品情報の更新に失敗しました'
+      flash[:error] = '商品情報の更新に失敗しました'
       render :edit
     end
   end
