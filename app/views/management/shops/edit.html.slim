@@ -20,4 +20,9 @@
       = f.label :description, '写真'
       = f.file_field :image
 
-    = f.submit '更新', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'
+    .ui.vertically.divided.grid.field
+      .ui.two.column.row
+        .ui.column
+          = link_to '戻る', management_root_path, class: 'ui button grey us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'
+        .ui.column
+          = f.submit '更新', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'

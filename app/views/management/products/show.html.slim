@@ -27,6 +27,11 @@
   .image
     = image_tag @product.image
 
-  .us-mt-15
-    = link_to '編集', edit_management_product_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
-    = link_to '削除', management_product_path, method: :delete, class: 'ui button red us-fw-400', style: 'font-weight: 100'
+  .ui.vertically.divided.grid.field
+    .ui.three.column.row
+      .ui.column
+        = link_to '戻る', management_products_path, class: 'ui button grey us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'
+      .ui.column
+        = link_to '編集', edit_management_product_path, class: 'ui button blue us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'
+      .ui.column
+        = link_to '削除', management_product_path, method: :delete, class: 'ui button red us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'
