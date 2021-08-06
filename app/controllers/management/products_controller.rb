@@ -24,7 +24,7 @@ class Management::ProductsController < Management::ApplicationController
       flash[:success] = '商品情報を登録しました'
       redirect_to management_products_path
     else
-      flash[:error] = '商品情報の更新に失敗しました'
+      flash[:error] = '商品情報の追加に失敗しました'
       render :new
     end
   end
