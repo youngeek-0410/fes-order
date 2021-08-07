@@ -1,0 +1,293 @@
+# ==============================================================================
+# .rubocop
+# ==============================================================================
+require:
+  - rubocop-rails
+
+
+# ------------------------------------------------------------------------------
+# AllCops
+# ------------------------------------------------------------------------------
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 2.7.1
+  TargetRailsVersion: 6.3.1
+  Exclude:
+    - db/schema.rb
+    - db/fixtures/**/*
+    - vendor/**/*
+    - public/**/*
+    - tmp/**/*
+    - log/**/*
+    - bin/**/*
+    - .git/**/*
+    - swagger/**/*
+    - spec/definitions/**/*
+    - spec/parameters/**/*
+    - test/**/*
+    - config/locales/**/*
+    - scripts/**/*
+    - node_modules/**/*
+
+
+# ------------------------------------------------------------------------------
+# Rails
+# ------------------------------------------------------------------------------
+Rails:
+  Enabled: true
+Rails/Output:
+  Exclude:
+    - db/seeds.rb
+Rails/FilePath:
+  Enabled: false
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+Rails/OutputSafety:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Enabled: false
+Rails/HttpPositionalArguments:
+  Enabled: false
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
+    - heroku
+Rails/UniqBeforePluck:
+  Exclude:
+    - 'spec/**/*'
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: true
+Rails/FindById:
+  Enabled: true
+Rails/Inquiry:
+  Enabled: true
+Rails/MailerName:
+  Enabled: true
+Rails/MatchRoute:
+  Enabled: true
+Rails/NegateInclude:
+  Enabled: true
+Rails/Pluck:
+  Enabled: true
+Rails/PluckInWhere:
+  Enabled: true
+Rails/RenderInline:
+  Enabled: true
+Rails/RenderPlainText:
+  Enabled: true
+Rails/ShortI18n:
+  Enabled: true
+Rails/WhereExists:
+  Enabled: true
+
+
+# ------------------------------------------------------------------------------
+# Style
+# ------------------------------------------------------------------------------
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/BlockDelimiters:
+  Enabled: false
+Style/BlockComments:
+  Enabled: false
+Style/AsciiComments:
+  Enabled: false
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+Style/SignalException:
+  Enabled: false
+Style/RedundantSelf:
+  Enabled: false
+Style/NonNilCheck:
+  Enabled: false
+Style/IfInsideElse:
+  Enabled: false
+Style/MultilineBlockChain:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/RescueStandardError:
+  Enabled: false
+Style/RedundantBegin:
+  Exclude:
+    - bin/yarn
+Style/RedundantReturn:
+  AllowMultipleReturnValues: true
+Style/MixinUsage:
+  Exclude:
+    - bin/update
+    - bin/setup
+Style/RescueModifier:
+  Exclude:
+    - 'spec/**/*'
+Style/EmptyMethod:
+  Enabled: false
+Style/CommentAnnotation:
+  Enabled: false
+Style/ConditionalAssignment:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Style/ExponentialNotation:
+  Enabled: true
+Style/SlicingWithRange:
+  Enabled: true
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+Style/RedundantRegexpEscape:
+  Enabled: true
+Style/AccessorGrouping:
+  Enabled: true
+Style/BisectedAttrAccessor:
+  Enabled: true
+Style/RedundantAssignment:
+  Enabled: false
+Style/RedundantFetchBlock:
+  Enabled: true
+Style/ArrayCoercion:
+  Enabled: true
+Style/CaseLikeIf:
+  Enabled: true
+Style/HashAsLastArrayItem:
+  Enabled: false
+Style/HashLikeCase:
+  Enabled: true
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+
+
+# ------------------------------------------------------------------------------
+# Layout
+# ------------------------------------------------------------------------------
+Layout/EmptyLines:
+  Enabled: false
+Layout/ParameterAlignment:
+  Enabled: false
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+Layout/ExtraSpacing:
+  Enabled: false
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+Layout/CaseIndentation:
+  Enabled: false
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+Layout/RescueEnsureAlignment:
+  Enabled: false
+Layout/EmptyLineBetweenDefs:
+  NumberOfEmptyLines: [1, 2]
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/HashAlignment:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+Layout/LineLength:
+  Max: 200
+  Exclude:
+    - db/seeds.rb
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+
+# ------------------------------------------------------------------------------
+# Metrics
+# ------------------------------------------------------------------------------
+Metrics/MethodLength:
+  Max: 100
+Metrics/BlockLength:
+  Max: 60
+  Exclude:
+    - spec/**/*.rb
+    - config/routes/**/*.rb
+    - config/environments/heroku.rb
+Metrics/AbcSize:
+  Max: 100
+  Exclude:
+    - spec/support/request_helpers.rb
+Metrics/CyclomaticComplexity:
+  Max: 15
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+Metrics/ModuleLength:
+  Max: 200
+Metrics/ClassLength:
+  Max: 200
+
+
+# ------------------------------------------------------------------------------
+# Lint
+# ------------------------------------------------------------------------------
+Lint/ShadowedArgument:
+  IgnoreImplicitReferences: true
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+Lint/Void:
+  Exclude:
+    - 'spec/**/*'
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+Lint/DuplicateElsifCondition:
+  Enabled: true
+
+
+# ------------------------------------------------------------------------------
+# Bundler
+# ------------------------------------------------------------------------------
+Bundler/OrderedGems:
+  Enabled: false
+
+
+# ------------------------------------------------------------------------------
+# Naming
+# ------------------------------------------------------------------------------
+Naming/MethodParameterName:
+  AllowedNames:
+    - of
+    - id
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+Naming/AccessorMethodName:
+  Enabled: false
+Naming/FileName:
+  Enabled: false

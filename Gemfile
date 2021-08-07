@@ -42,6 +42,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # Rubocop
+  gem 'rubocop', '~> 1.14.0'
+  gem 'rubocop-rails'
 end
 
 group :development do
