@@ -6,7 +6,7 @@ module PayjpHelper
     options = {
       amount: amount,
       currency: 'jpy',
-      customer: customer_id, 
+      customer: customer_id,
     }
     Payjp::Charge.create(options)
   end

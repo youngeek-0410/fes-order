@@ -15,8 +15,8 @@ class Shop < ApplicationRecord
   validates :description, presence: true
   validate :shop_image_size
 
-  scope :ramdom1, -> (unexpect_shop_id) { 
-    shop = self.where.not(id: unexpect_shop_id).order("RANDOM()").first() 
+  scope :ramdom1, lambda { |unexpect_shop_id|
+    shop = self.where.not(id: unexpect_shop_id).order('RANDOM()').first
     shop.nil? ? self.find(unexpect_shop_id) : shop
   }
 
@@ -24,8 +24,8 @@ class Shop < ApplicationRecord
 
   def shop_image_size
     if image.blob.byte_size > 1.megabytes
-      errors.add(:image, "should be less than 1MB")
-      #! TODO: エラーメッセージを表示するようにhtml修正
+      errors.add(:image, 'should be less than 1MB')
+      # TODO: エラーメッセージを表示するようにhtml修正
     end
   end
 end

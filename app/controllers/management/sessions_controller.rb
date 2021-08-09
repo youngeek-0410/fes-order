@@ -11,7 +11,7 @@ class Management::SessionsController < Management::ApplicationController
 
   def create
     @shop = Shop.find_by(email: params[:email])
-    if @shop && @shop.authenticate(params[:password])
+    if @shop&.authenticate(params[:password])
       sign_in @shop
       redirect_to management_root_path
     else

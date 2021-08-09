@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
+    if @user&.authenticate(params[:password])
       sign_in @user
       flash[:info] = 'ログインしました。'
       redirect_to root_path
@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     flash[:info] = 'ログアウトしました。'
-    redirect_to new_session_path 
+    redirect_to new_session_path
   end
 end

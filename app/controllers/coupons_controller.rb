@@ -9,7 +9,7 @@ class CouponsController < ApplicationController
 
   def create
     shop = Shop.ramdom1(params[:shop_id])
-    discount = params[:discount] == 0 ? 10 : params[:discount]
+    discount = params[:discount].zero? ? 10 : params[:discount]
     name = "#{shop.name} #{discount}円引きクーポン"
     coupon = Coupon.new(name: name, discount: discount, user: current_user, expired_at: Time.current.end_of_day, shop: shop)
     coupon.save!

@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
     t.boolean "is_availabled", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "charge_id", null: false
+    t.string "charge_id", default: "", null: false
     t.index ["coupon_id"], name: "index_receipts_on_coupon_id"
     t.index ["order_id"], name: "index_receipts_on_order_id"
     t.index ["product_id"], name: "index_receipts_on_product_id"
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_shops_on_email", unique: true
   end
 
   create_table "system_admins", force: :cascade do |t|
@@ -127,6 +128,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
     t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_system_admins_on_email", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -138,6 +140,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_091403) do
     t.string "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
