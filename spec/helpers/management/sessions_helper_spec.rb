@@ -1,6 +1,6 @@
-require 'rails_helper'   
+require 'rails_helper'
 
-RSpec.describe Management::SessionsHelper do 
+RSpec.describe Management::SessionsHelper do
   include Management::SessionsHelper
 
   let(:shop) { create(:shop) }
@@ -47,7 +47,7 @@ RSpec.describe Management::SessionsHelper do
       end
     end
   end
-  
+
   describe 'sign_out' do
     context 'call sign_out' do
       it 'set session[:shop_id] = nil' do

@@ -3,7 +3,7 @@
 # ==============================================================================
 class Management::ReceiptsController < Management::ApplicationController
   def index
-    @current = params[:current] ? params[:current] : 'not_availabled'
+    @current = params[:current] || 'not_availabled'
     @receipts = Receipt.where(shop: current_shop, is_availabled: @current == 'availabled')
   end
 

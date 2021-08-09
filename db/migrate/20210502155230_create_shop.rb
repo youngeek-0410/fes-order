@@ -7,5 +7,6 @@ class CreateShop < ActiveRecord::Migration[6.0]
       t.text :description, limit: 256
       t.timestamps
     end
+    add_index :shops, :email, unique: true
   end
 end

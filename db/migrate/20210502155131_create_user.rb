@@ -9,5 +9,6 @@ class CreateUser < ActiveRecord::Migration[6.0]
       t.string :customer_id, null: false
       t.timestamps
     end
+    add_index :users, :email, unique: true
   end
 end

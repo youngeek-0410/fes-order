@@ -1,6 +1,6 @@
-require 'rails_helper'   
+require 'rails_helper'
 
-RSpec.describe SessionsHelper do 
+RSpec.describe SessionsHelper do
   include SessionsHelper
 
   let(:user) { create(:user) }
@@ -47,7 +47,7 @@ RSpec.describe SessionsHelper do
       end
     end
   end
-  
+
   describe 'sign_out' do
     context 'call sign_out' do
       it 'set session[:user_id] = nil' do

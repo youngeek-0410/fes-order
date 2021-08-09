@@ -14,8 +14,8 @@ class Coupon < ApplicationRecord
     self.save!
   end
 
-  scope :ramdom1, -> (unexpect_shop_id) { 
-    shop = self.select("shop_id").where.not(shop_id: unexpect_shop_id).order("RANDOM()").first() 
+  scope :ramdom1, lambda { |unexpect_shop_id|
+    shop = self.select('shop_id').where.not(shop_id: unexpect_shop_id).order('RANDOM()').first
     shop.nil? ? self.find(unexpect_shop_id) : shop
   }
 end

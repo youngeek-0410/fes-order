@@ -6,16 +6,13 @@ class UsersController < ApplicationController
   before_action :set_customer, only: [:update]
   skip_before_action :authenticate!, only: [:new, :create]
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def create
     @user = User.new(user_params)
@@ -31,11 +28,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
-      @customer.cards.create(
-        card: params[:payjp_token],
-        default: true,
-      ) if params[:payjp_token][0, 3] == "tok"
+    if @user.update(user_params)
+      if params[:payjp_token][0, 3] == 'tok'
+        @customer.cards.create(
+          card: params[:payjp_token],
+          default: true,
+        )
+      end
       flash[:success] = 'ユーザ情報を更新しました。'
       redirect_to user_path
     else

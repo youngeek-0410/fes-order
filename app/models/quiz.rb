@@ -2,7 +2,9 @@
 # app - models - quizs
 # ==============================================================================
 class Quiz < ApplicationRecord
-  scope :ramdom, ->(n) { self.all.sample(n) }
+  scope :ramdom, lambda { |n|
+    self.all.sample(n)
+  }
 
   validates :description, presence: true
   validates :answer, presence: true

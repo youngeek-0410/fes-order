@@ -3,7 +3,7 @@
 # ==============================================================================
 class ReceiptsController < ApplicationController
   def index
-    @current = params[:current] ? params[:current] : 'not_used'
+    @current = params[:current] || 'not_used'
     @pagy, @receipts = pagy Receipt.includes([:product, :shop, :coupon]).where(user: current_user, is_used: @current == 'used')
   end
 
@@ -17,10 +17,10 @@ class ReceiptsController < ApplicationController
     unless order.save
       @coupons = Coupon.where(user: current_user, is_used: false)
       flash[:error] = '購入に失敗しました。'
-      return render 'products/show' 
+      return render 'products/show'
     end
     coupon = params[:coupon_id].blank? ? nil : Coupon.find(params[:coupon_id].to_i)
-    
+
     price = order.product.price * order.count
     price_tax = order.product.price_tax * order.count
     price_tax -= coupon.discount unless coupon.nil?
@@ -47,13 +47,12 @@ class ReceiptsController < ApplicationController
 
   def to_used
     receipt = Receipt.where(user: current_user).find(params[:id])
-    if receipt.is_availabled 
+    if receipt.is_availabled
       receipt.to_used
       flash[:info] = "#{receipt.product.name}を受け取りました。"
-      redirect_to user_receipts_path
     else
-      flash[:error] = "まだ受け取れません。"
-      redirect_to user_receipts_path
+      flash[:error] = 'まだ受け取れません。'
     end
+    redirect_to user_receipts_path
   end
 end

@@ -9,7 +9,7 @@ class Management::ShopsController < Management::ApplicationController
   end
 
   def new
-    @shop =Shop.new
+    @shop = Shop.new
   end
 
   def edit
@@ -25,7 +25,7 @@ class Management::ShopsController < Management::ApplicationController
   end
 
   def update
-    if @shop.update_attributes(shop_params)
+    if @shop.update(shop_params)
       flash[:success] = 'ショップ情報を更新しました。'
       redirect_to management_shop_path
     else

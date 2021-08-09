@@ -285,8 +285,6 @@ Naming/MethodParameterName:
   AllowedNames:
     - of
     - id
-Naming/VariableNumber:
-  EnforcedStyle: snake_case
 Naming/AccessorMethodName:
   Enabled: false
 Naming/FileName:

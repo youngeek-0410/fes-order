@@ -1,7 +1,6 @@
 # ==============================================================================
 # app - helpers - management - sessions
 # ==============================================================================
-
 module Management::SessionsHelper
   def sign_in(shop)
     session[:shop_id] = shop.id
