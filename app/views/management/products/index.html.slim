@@ -1,0 +1,48 @@
+/ ==============================================================================
+/ app - views - management - products - index
+/ ==============================================================================
+.ui.container
+  h1.us-pt-10 商品一覧
+  .ui.divider
+
+  .us-mt-15
+      = link_to '追加', new_management_product_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
+
+  table.ui.celled.table
+    thead
+      th
+        | 画像
+      th
+        | 商品名
+      th
+        | 説明
+      th
+        | 値段
+      th
+        | 平均待ち時間
+      th 
+        |
+      th
+        |
+      th
+        |
+    tbody
+      - if @products
+        - @products.each do |product|
+            tr
+            td
+                = image_tag product.image, class: 'us-w-100px'
+            td
+                = product.name
+            td
+                = product.description
+            td
+                = product.price.to_s + '円'
+            td
+                = product.required_minutes.to_s + '分'
+            td
+                = link_to '詳細', management_product_path(product.id), method: :get, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
+            td
+                = link_to '編集', edit_management_product_path(product), method: :get, class: 'ui button blue us-fw-400', style: 'font-weight: 100'
+            td
+                = link_to '削除', management_product_path(product.id), method: :delete, class: 'ui button red us-fw-400', style: 'font-weight: 100'

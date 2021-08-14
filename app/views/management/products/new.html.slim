@@ -1,0 +1,26 @@
+/ ==============================================================================
+/ app - views - management - products - edit
+/ ==============================================================================
+.ui.container
+  h1.us-pt-10 新規商品追加
+  .ui.divider
+
+.ui.container.us-mt-30
+  = form_with url: management_products_path, model: @product, class: 'ui form', id: 'product_form', local: true do |f|
+    .field
+      = f.label :name, '商品名'
+      = f.text_field :name, placeholder: '商品名'
+    .field
+      = f.label :description, '説明'
+      = f.text_field :description, placeholder: '説明'
+    .field
+      = f.label :price, '値段'
+      = f.text_field :price, placeholder: '値段'
+    .field
+      = f.label :required_minutes, '平均待ち時間'
+      = f.text_field :required_minutes, placeholder: '平均待ち時間'
+    .field 
+      = f.label :image, '写真'
+      = f.file_field :image, accept: 'image/jpeg, image/png, image/jpg'
+
+    = f.submit '追加', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'

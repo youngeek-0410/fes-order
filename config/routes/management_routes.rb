@@ -13,5 +13,7 @@ Rails.application.routes.draw do
         post 'to_availabled', on: :member
       end
     end
+
+    resources :products
   end
 end
