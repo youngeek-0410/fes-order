@@ -26,16 +26,16 @@ class ReceiptsController < ApplicationController
     price_tax -= coupon.discount unless coupon.nil?
 
     begin
-      charge = payjp_charge(price_tax, current_user.customer_id)  
+      charge = payjp_charge(price_tax, current_user.customer_id)
     rescue Payjp::CardError
       flash[:error] = '購入に失敗しました。カード情報が誤っている可能性があります。'
       redirect_to show_product
-    rescue => exception
+    rescue Payjp::InvalidRequestError
       flash[:error] = '購入に失敗しました。サーバエラーです。'
       # notice Param Error
       redirect_to show_product
     rescue Payjp::AuthenticationError
-      flash[:error] = '購入に失敗しました。サーバエラーです。'
+      flash[:error] = '購入に失敗しました。サーバエラーです。(API)'
       # notice API Key が変更された可能性がある
       redirect_to show_product
     rescue Payjp::APIError
