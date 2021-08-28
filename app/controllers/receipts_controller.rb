@@ -27,10 +27,12 @@ class ReceiptsController < ApplicationController
 
     begin
       charge = payjp_charge(price_tax, current_user.customer_id)
-    rescue Payjp::PayjpError
+    rescue Payjp::PayjpError => e
+      Bugsnag.notify(e)
       flash[:error] = '購入に失敗しました。サーバがダウンしている可能性があります。しばらくしてからお試しください。'
       redirect_to show_product
-    rescue
+    rescue => e
+      Bugsnag.notify(e)
       flash[:error] = '購入に失敗しました。サーバがダウンしている可能性があります。'
       redirect_to show_product
     end

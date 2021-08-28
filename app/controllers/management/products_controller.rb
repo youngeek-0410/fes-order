@@ -43,7 +43,8 @@ class Management::ProductsController < Management::ApplicationController
     flash[:success] = '商品情報を削除しました'
     @product.destroy!
     redirect_to management_products_path
-  rescue StandardError
+  rescue => e
+    Bugsnag.notify(e)
     flash[:error] = '商品情報の削除に失敗しました。もう一度やり直してください'
     redirect_to management_products_path
   end

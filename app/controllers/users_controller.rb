@@ -58,7 +58,8 @@ class UsersController < ApplicationController
       @user.destroy!
       flash[:success] = '退会が完了しました。'
       redirect_to :root
-    rescue StandardError
+    rescue => e
+      Bugsnag.notify(e)
       flash[:error] = '退会に失敗しました。もう一度やり直してください'
       redirect_to user_path
     end
