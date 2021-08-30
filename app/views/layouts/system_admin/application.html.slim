@@ -1,0 +1,28 @@
+/ ==============================================================================
+/ app - views - layout - system_admin - application
+/ ==============================================================================
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no')
+    = javascript_pack_tag 'application'
+    = stylesheet_link_tag 'application'
+    = csrf_meta_tags
+    title event_payment_app 運営管理画面
+  body
+    / side bar
+    .ui.inverted.left.inline.vertical.visible.sidebar.menu.icon.demo
+      = link_to system_admin_root_path, class: 'item' do
+        i.home.icon.huge
+
+    / main contents
+    .pusher style="width: calc(100% - 260px);"
+      .ui.container
+        / messages
+        - flash.each do |key, value|
+          .us-pt-10
+            = content_tag(:div, value, class: "#{key} ui message us-mt-10", style: "margin-bottom: 10px")
+        
+        == yield

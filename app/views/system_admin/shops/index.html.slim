@@ -1,0 +1,29 @@
+/ ==============================================================================
+/ app - views - system_admin - shops - index
+/ ==============================================================================
+.ui.container
+  h1.us-pt-10 登録店一覧
+  .ui.divider
+
+  table.ui.celled.table
+    thead
+      th
+        | 画像
+      th
+        | 店名
+      th
+        | 説明
+      th
+        | Email
+    tbody
+      - if @shops
+        - @shops.each do |shop|
+            tr
+            td
+                = image_tag shop.image, class: 'us-w-100px'
+            td
+                = shop.name
+            td
+                = shop.description
+            td
+                = shop.email
