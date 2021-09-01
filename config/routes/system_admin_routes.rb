@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     post 'sign_in', to: 'sessions#create', as: :session
     delete 'sign_out', to: 'sessions#destroy', as: :destroy_session
 
-    resources :shops
+    resources :shops, only: [:index, :create, :new, :destroy]
   end
 end

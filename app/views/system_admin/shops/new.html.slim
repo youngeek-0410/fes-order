@@ -1,0 +1,29 @@
+/ ==============================================================================
+/ app - views - system_admin - shop - new
+/ ==============================================================================
+.ui.container
+  h1.us-pt-10 新規店追加
+  .ui.divider
+
+.ui.container.us-mt-30
+  = form_with url: system_admin_shops_path, model: @shop, class: 'ui form', id: 'shop_form', local: true do |f|
+    .field
+      = f.label :name, '店名'
+      = f.text_field :name, placeholder: '店名'
+    .field
+      = f.label :description, '説明'
+      = f.text_field :description, placeholder: '説明'
+    .field
+      = f.label :email, 'Email'
+      = f.email_field :email, placeholder: 'Email'
+    .field
+      = f.label :password, 'パスワード'
+      = f.password_field :password, placeholder: 'xxxxxxxx'
+    .field
+      = f.label :password_confirmation, 'パスワード再入力'
+      = f.password_field :password_confirmation, placeholder: 'xxxxxxxx'
+    .field 
+      = f.label :image, '画像'
+      = f.file_field :image, accept: 'image/jpeg, image/png, image/jpg'
+
+    = f.submit '追加', class: 'ui button primary us-w-100 us-h-45-px', style: 'font-weight: 100; margin-top: 20px;'
