@@ -103,3 +103,8 @@ Quiz.create!(description: '今回のお祭りはいつから続いているで�
 Quiz.create!(description: '今回のお祭りで行われるモンスターエナジー大飲み大会の優勝賞品はなんでしょう？', content1: 'PlayStation 5', content2: 'Oculus Quest 2', content3: 'ドリームキャスト', answer: 2)
 Quiz.create!(description: '今回のお祭りを主催している商店街にはいくつお店があるでしょう？', content1: '30', content2: '50', content3: '80', answer: 3)
 Quiz.create!(description: '今回のお祭りを主催している商店街のマスコットキャラクターと言えばなんでしょう？', content1: 'ニセエもん', content2: 'サカナさん', content3: 'ワンパクマン', answer: 3)
+
+# =================================================================
+# SystemAdmin
+# =================================================================
+SystemAdmin.create!(name: '運営', email: 'system@example.com', password: 'password', password_confirmation: 'password')
