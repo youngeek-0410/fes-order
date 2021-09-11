@@ -20,7 +20,6 @@ class Shop < ApplicationRecord
     shop.nil? ? self.find(unexpect_shop_id) : shop
   }
 
-  private
 
   # TODO: いつか直す
   # def shop_image_size

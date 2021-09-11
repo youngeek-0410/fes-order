@@ -25,7 +25,17 @@ class ReceiptsController < ApplicationController
     price_tax = order.product.price_tax * order.count
     price_tax -= coupon.discount unless coupon.nil?
 
-    charge = payjp_charge(price_tax, current_user.customer_id)
+    begin
+      charge = payjp_charge(price_tax, current_user.customer_id)
+    rescue Payjp::PayjpError => e
+      Bugsnag.notify(e)
+      flash[:error] = '購入に失敗しました。サーバがダウンしている可能性があります。しばらくしてからお試しください。'
+      redirect_to show_product
+    rescue => e
+      Bugsnag.notify(e)
+      flash[:error] = '購入に失敗しました。サーバがダウンしている可能性があります。'
+      redirect_to show_product
+    end
 
     receipts_params = {
       user_id: current_user.id,

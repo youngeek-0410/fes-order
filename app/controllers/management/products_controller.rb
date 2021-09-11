@@ -43,18 +43,19 @@ class Management::ProductsController < Management::ApplicationController
     flash[:success] = '商品情報を削除しました'
     @product.destroy!
     redirect_to management_products_path
-    rescue
-      flash[:error] = '商品情報の削除に失敗しました'
-      redirect_to management_products_path
+  rescue => e
+    Bugsnag.notify(e)
+    flash[:error] = '商品情報の削除に失敗しました。もう一度やり直してください'
+    redirect_to management_products_path
   end
 
   private
 
-    def product_params
-      params.require(:product).permit(:name, :description, :price, :required_minutes, :image).merge(price_tax: (params[:price].to_i * 1.1).to_i)
-    end
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :required_minutes, :image).merge(price_tax: (params[:price].to_i * 1.1).to_i)
+  end
 
-    def set_product
-      @product = Product.find(params[:id])
-    end
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end
