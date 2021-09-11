@@ -33,6 +33,9 @@ gem 'payjp'
 
 gem 'bugsnag'
 
+# https://github.com/jsonapi-serializer/jsonapi-serializer
+gem 'jsonapi-serializer'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
