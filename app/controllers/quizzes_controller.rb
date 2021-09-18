@@ -8,5 +8,6 @@ class QuizzesController < ApplicationController
     count = params[:count].nil? ? 1 : params[:count].to_i
     quizzes = Quiz.ramdom(count)
     @quizzes = QuizzesSerializer.new(quizzes).serializable_hash.to_json
+    render json: @quizzes
   end
 end
