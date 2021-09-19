@@ -1,5 +1,6 @@
 # Fes Order
 ## サービス概要
+[ハッカソン発表資料](https://docs.google.com/presentation/d/1iofsOsxJ1JBCvcUQli61Ndvc6dC429BtBOMfwb6WSUg/edit#slide=id.gd75a8018c5_1_0)
 文化祭、地域祭りなどで使える事前決済サービスです。
 
 Pay.jpを用いた事前決済機能に加え、購入特典としてクイズゲームの提供、クイズの景品として決済時に使えるクーポン発行などの機能があります。
