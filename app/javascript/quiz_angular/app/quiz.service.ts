@@ -16,8 +16,8 @@ export class QuizService {
     return this.httpService.get().pipe(
       tap(
         quizzes => {
-          console.log(quizzes);
-          this.allQuizes = quizzes;
+          console.log(quizzes['data']);
+          this.allQuizes = quizzes['data'];
         }
       )
     )
@@ -28,7 +28,7 @@ export class QuizService {
   }
 
   getNextQuiz() {
-    return this.allQuizes[this.quizIndex++];
+    return this.allQuizes[this.quizIndex++]['attributes'];
   }
 
   getShopId() {
