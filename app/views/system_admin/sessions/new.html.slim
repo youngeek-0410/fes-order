@@ -1,0 +1,14 @@
+/ ==============================================================================
+/ app - views - system_admin - sessions - new
+/ ==============================================================================
+
+= form_with url: system_admin_session_path, class: 'form ui form', method: :post, local: true do |f|
+  .field
+    = label_tag :email, 'メールアドレス'
+    = email_field_tag :email, @email, placeholder: 'email@example.com'
+    
+  .field
+    = label_tag :password, 'パスワード'
+    = password_field_tag :password
+  
+  = submit_tag "ログイン", class: 'ui button'

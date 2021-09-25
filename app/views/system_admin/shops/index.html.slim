@@ -1,0 +1,36 @@
+/ ==============================================================================
+/ app - views - system_admin - shops - index
+/ ==============================================================================
+.ui.container
+  h1.us-pt-10 登録店一覧
+  .ui.divider
+
+  .us-mt-15
+      = link_to '追加', new_system_admin_shop_path, class: 'ui button grey us-fw-400', style: 'font-weight: 100'
+
+  table.ui.celled.table
+    thead
+      th
+        | 画像
+      th
+        | 店名
+      th
+        | 説明
+      th
+        | Email
+      th
+        |
+    tbody
+      - if @shops
+        - @shops.each do |shop|
+            tr
+            td
+                = image_tag shop.image, class: 'us-w-100px'
+            td
+                = shop.name
+            td
+                = shop.description
+            td
+                = shop.email
+            td
+                = link_to '削除', system_admin_shop_path(shop.id), method: :delete, class: 'ui button red us-fw-400', style: 'font-weight: 100'
