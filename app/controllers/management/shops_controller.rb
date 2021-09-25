@@ -2,10 +2,13 @@
 # app - controller - management - shops
 # ==============================================================================
 class Management::ShopsController < Management::ApplicationController
-  before_action :set_shop, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, only: [:show, :edit, :update, :destroy, :edit_password, :update_password]
   skip_before_action :authenticate!, only: [:new, :create]
 
   def show
+    if current_shop.initial_login
+      redirect_to edit_password_management_shop_path
+    end
   end
 
   def new
@@ -34,9 +37,22 @@ class Management::ShopsController < Management::ApplicationController
     end
   end
 
+  def update_password
+    if @shop.update(shop_params.merge(initial_login: false))
+      flash[:success] = 'パスワードを更新しました。'
+      redirect_to management_shop_path
+    else
+      flash[:error] = 'パスワードの更新に失敗しました。'
+      render 'edit_password'
+    end
+  end
+
   def destroy
     @shop.destroy
     redirect_to management_root_path
+  end
+
+  def edit_password
   end
 
   private

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     delete 'sign_out', to: 'sessions#destroy', as: :destroy_session
 
     resource :shop do
+      get 'password', to: 'shops#edit_password', as: :edit_password
+      patch 'password', to: 'shops#update_password', as: :update_password
       resources :receipts, only: [:index, :show], controller: :receipts do
         post 'to_availabled', on: :member
       end
