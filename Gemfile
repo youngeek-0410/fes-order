@@ -13,7 +13,7 @@ gem 'puma', '~> 5.4'
 gem 'rails-i18n'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-gem 'slim-rails', '~> 3.3'
+gem 'slim-rails', '~> 3.5'
 gem 'pagy'
 gem 'jquery-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
