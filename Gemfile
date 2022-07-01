@@ -49,7 +49,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   # Rubocop
-  gem 'rubocop', '~> 1.20.0'
+  gem 'rubocop', '~> 1.31.1'
   gem 'rubocop-rails'
 end
 
